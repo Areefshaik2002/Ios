@@ -1,4 +1,4 @@
-//import UIKit
+import UIKit
 //
 //var greeting = "Hello, playground"
 //
@@ -165,3 +165,25 @@
 //    sum += i
 //}
 //print(sum)
+
+//
+//import Foundation
+//
+//print("Enter a number, n1: ")
+//if let input1 = readLine() , let num1 = Int(input1){
+//    print("Enter a number, n2 : ")
+//    if let input2 = readLine(), let num2 = Int(input2){
+//        let sum = num1 + num2
+//        print("the sum of n1 and n2 is \(sum)")
+//    }else{
+//        print("enter a valid n2")
+//    }
+//}else{
+//    print("enter a valid n1")
+//}
+
+
+    
+
+
+

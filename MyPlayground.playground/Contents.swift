@@ -58,13 +58,4 @@ class World:Bank{
         print("banck branch: \(bankBranch)")
     }
 }
-let obj1  = Bank(bankName: "SBI", bankBranch: "Guntur")
-obj1.bankDetails(bankName: "SBI", bankBranch: "Guntur")
-let obj2 = SBI(bankName: "SBI", interestRateOnLoan: 8.5, bankBranch: "Vizag", numberOfAccountHolders: 6782412989728)
-print(obj2.interestRateOnLoan)
-print(obj2.bankDetails(bankName: "SBI", bankBranch: "Hyderabad"))
-print(obj2.interestCalculation(amount: 1000000, rateOfInterest: 8.5))
-let obj3 = World(bankName: "World Bank", interestRateOnLoan: 15.0, abroad: true, bankBranch: "america", numberOfAccountHolders: 456214)
-print(obj3.interestCalculation(amount: 3000000000, rateOfInterest: 15.0))
-obj1.bankBranch = "LB Nagar"
-print(obj1.bankDetails(bankName: "union", bankBranch: "UP"))
+
