@@ -99,23 +99,37 @@ import UIKit
 //evaluate(divide)
 
 ///Structures
-//struct Resolution{
-//    var width  = 0
-//    var height = 0
-//}
-//
-//class VideoMode{
-//    var resolution = Resolution()
-//    var interlaced = false
-//    var frameRate = 0.0
-//    var name:String?
-//}
+struct Resolution{
+    var width  = 0
+    var height = 0
+}
+
+class VideoMode{
+    var resolution = Resolution()
+    var interlaced = false
+    var frameRate = 0.0
+    var name:String?
+}
 //
 //let someResolution = Resolution()
 //let someVideoMode = VideoMode()
-//
+
 //print("width : \(someResolution.height)\nheight : \(someResolution.width)")
 //print("VideoModeHeight: \(someVideoMode.resolution.height)\nVideoModeWidth: \(someVideoMode.resolution.width)")
+let hd = Resolution(width: 1920, height: 1080)
+var cinema = hd
+print(cinema.height)
+cinema.height = 1000
+print(cinema.height)
+let tenEighty = VideoMode()
+tenEighty.resolution = hd
+tenEighty.interlaced = false
+tenEighty.name = "Areef"
+tenEighty.frameRate = 30.0
+let alsoTenEighty = tenEighty
+alsoTenEighty.frameRate = 40.0
+print(tenEighty.frameRate)
+print(alsoTenEighty.frameRate)
 
 //struct Point{
 //    var x : Int
