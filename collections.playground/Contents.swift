@@ -162,3 +162,39 @@ for j in dictinary1.values{
 }
 let rollNumbers = [Int](dictinary1.keys)
 let EmployeeNames = [String](dictinary1.values)
+
+
+///Subscripts
+struct Example{
+    var data = ["A","B","C"]
+    subscript(index:Int)->String{
+        return data[index]
+    }
+}
+let example = Example()
+print(example[2])
+
+struct TimesTable{
+    var multiplier : Int
+    subscript(index:Int)->Int{
+        return multiplier * index
+    }
+}
+let threeTimesTable = TimesTable(multiplier: 3)
+print(threeTimesTable[3])
+
+struct ArrayType{
+    var arr:[Int] = [1,2,3,4,5]
+    subscript(index:Int) -> [Int]{
+        get{
+            guard index >= 0 && index < arr.count else{
+                return[]
+            }
+            return arr.map{$0 * index}
+        }set{
+            
+        }
+    }
+}
+let value = ArrayType()
+print(value[3])
