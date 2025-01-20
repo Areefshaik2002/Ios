@@ -392,8 +392,9 @@ Task{
     }
 }
 
-//macros
+//macros - used to generate code at compile time
 func myFunction() {
     print("Currently running \(#function)")
     #warning("Something's wrong")
 }
+
