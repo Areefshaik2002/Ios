@@ -396,5 +396,6 @@ Task{
 func myFunction() {
     print("Currently running \(#function)")
     #warning("Something's wrong")
+    #warning("let's get out of here")
 }
-
+myFunction()
