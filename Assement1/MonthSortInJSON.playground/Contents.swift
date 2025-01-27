@@ -12,12 +12,14 @@ if let fileURL = Bundle.main.url(forResource: "events", withExtension: "json") {
     do {
         let data = try Data(contentsOf: fileURL)
         let events = try JSONDecoder().decode([Event].self, from: data)
+        //remove hardcode
         var allMonths = [
             "July 2024", "August 2024", "September 2024", "October 2024", "November 2024", "December 2024",
             "January 2025", "February 2025", "March 2025", "April 2025", "May 2025", "June 2025", "July 2025"
         ]
         
         var groupedEvents: [String: [Event]] = [:]
+        //use better format/optimize it
         for event in events {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -31,7 +33,7 @@ if let fileURL = Bundle.main.url(forResource: "events", withExtension: "json") {
         }
         
         let sortedMonths = allMonths.filter { groupedEvents.keys.contains($0) }
-        
+        //use inbuilt sorting
         for month in sortedMonths {
             if let eventsInMonth = groupedEvents[month] {
                 print("\(month):")
@@ -55,6 +57,7 @@ if let fileURL = Bundle.main.url(forResource: "events", withExtension: "json") {
     print("File not found")
 }
 
+//remove the blunder and use date to sort
 func takeDayOnly(from eventName: String) -> Int {
     if let match = eventName.split(separator: " ").last,
        let day = Int(match.replacingOccurrences(of: "+", with: "")) {

@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func convertTemp(_ sender: Any) {
-        guard !tempText.contains(<#T##environment: any UIFocusEnvironment##any UIFocusEnvironment#>)
+        guard !tempText.contains()
     }
     
 }
