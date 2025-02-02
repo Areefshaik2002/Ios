@@ -13,7 +13,7 @@ class ButtonViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("View name", for: .normal)
         button.backgroundColor = .blue
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
