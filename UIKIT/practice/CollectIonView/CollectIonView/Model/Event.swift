@@ -1,7 +1,6 @@
-import Foundation
 import UIKit
 
-struct Event {
+struct Event : Codable {
     let name: String
     let date: String
     let time: String

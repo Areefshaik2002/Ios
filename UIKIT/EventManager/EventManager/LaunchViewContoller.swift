@@ -53,7 +53,7 @@ class LaunchViewContoller: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedMonth = sortedMonths[indexPath.row]
+        let selectedMonth = sortedMonths[indexPath.section]
         let eventsVC = EventsViewController()
         eventsVC.selectedMonth = selectedMonth
         eventsVC.events = eventsByMonth[selectedMonth] ?? []

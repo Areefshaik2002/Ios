@@ -3,18 +3,16 @@ import UIKit
 class EventDetailsViewController: EventsViewController {
     
     var event: Event?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.prompt = ""
-        self.title = "Event Details"
+        self.title = event?.name
         self.view.backgroundColor = .systemMint
-        guard event != nil else { return }
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailsCell")
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,31 +20,21 @@ class EventDetailsViewController: EventsViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        guard let event = event else {
-            cell.textLabel?.text = "Unknown Event"
-            return cell
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath)
+        cell.backgroundColor = .white
         switch indexPath.section {
         case 0:
-            cell.textLabel?.text = " Name: \(event.name)"
+            cell.textLabel?.text = "Date: \(event?.date ?? "N/A")"
         case 1:
-            cell.textLabel?.text = " Date: \(event.date)"
+            cell.textLabel?.text = "Time: \(event?.time ?? "N/A")"
         case 2:
-            cell.textLabel?.text = " Time: \(event.time)"
-        case 3:
-            cell.textLabel?.text = " Location: \(event.location)"
+            cell.textLabel?.text = "Location: \(event?.location ?? "N/A")"
         default:
-            break
+            cell.textLabel?.text = ""
         }
-        cell.selectionStyle = .none
         return cell
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -55,11 +43,17 @@ class EventDetailsViewController: EventsViewController {
         return 5
     }
     
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let space = UIView()
+        space.backgroundColor = .clear
         return space
     }
-}
-#Preview {
-    EventDetailsViewController()
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }

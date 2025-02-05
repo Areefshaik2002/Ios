@@ -33,7 +33,7 @@ class EventsViewController: LaunchViewContoller {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEvent = events?[indexPath.row]
+        let selectedEvent = events?[indexPath.section]
         let detailsVC = EventDetailsViewController()
         detailsVC.event = selectedEvent
         navigationController?.pushViewController(detailsVC, animated: true)
