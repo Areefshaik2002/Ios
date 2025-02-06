@@ -1,59 +1,39 @@
 import UIKit
 
-class EventDetailsViewController: EventsViewController {
+class EventDetailsViewController: UIViewController {
     
     var event: Event?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.title = event?.name
-        self.view.backgroundColor = .systemMint
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "detailsCell")
+        setupViews()
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailsCell", for: indexPath)
-        cell.backgroundColor = .white
-        switch indexPath.section {
-        case 0:
-            cell.textLabel?.text = "Date: \(event?.date ?? "N/A")"
-        case 1:
-            cell.textLabel?.text = "Time: \(event?.time ?? "N/A")"
-        case 2:
-            cell.textLabel?.text = "Location: \(event?.location ?? "N/A")"
-        default:
-            cell.textLabel?.text = ""
-        }
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 5
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let space = UIView()
-        space.backgroundColor = .clear
-        return space
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func setupViews() {
+        let nameLabel = UILabel()
+        nameLabel.text = "Event Name: \(event?.name ?? "No name")"
+        nameLabel.frame = CGRect(x: 20, y: 100, width: 300, height: 40)
+        nameLabel.backgroundColor = .white
         
+        let dateLabel = UILabel()
+        dateLabel.text = "Date: \(event?.date ?? "No date")"
+        dateLabel.frame = CGRect(x: 20, y: 150, width: 300, height: 40)
+        
+        let timeLabel = UILabel()
+        timeLabel.text = "Time: \(event?.time ?? "N0 time")"
+        timeLabel.frame = CGRect(x: 20, y: 200, width: 300, height: 40)
+        
+        let locationLabel = UILabel()
+        locationLabel.text = "Location: \(event?.location ?? "N0 location")"
+        locationLabel.frame = CGRect(x: 20, y: 250, width: 300, height: 40)
+        
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(dateLabel)
+        self.view.addSubview(timeLabel)
+        self.view.addSubview(locationLabel)
     }
+    
+    
 }

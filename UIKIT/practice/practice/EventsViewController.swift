@@ -45,154 +45,122 @@ func loadEvents() -> [String: [Event]] {
     }
 }
 
-class LaunchViewContoller: UITableViewController{
-    
-    override var view: UIView! {
-        didSet {
-            view.backgroundColor = .white
-        }
-    }
+import UIKit
+
+class LaunchViewController: UITableViewController {
     
     var eventsByMonth: [String: [Event]] = [:]
     var sortedMonths: [String] = []
-    
+
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.title = "Event Months"
         self.navigationItem.prompt = "Tap a month to view events"
-        super.viewDidLoad()
+        self.view.backgroundColor = .systemMint
+        self.navigationItem.backButtonTitle = "Back"
+        self.navigationController?.navigationBar.tintColor = .black
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         loadAndSortEvents()
-
     }
-    
+
     func loadAndSortEvents() {
-           eventsByMonth = loadEvents()
-           let formatter = DateFormatter()
-           formatter.dateFormat = "MMMM yyyy"
-           
-           sortedMonths = eventsByMonth.keys.sorted { dateString1, dateString2 in
-               guard let date1 = formatter.date(from: dateString1),
+        eventsByMonth = loadEvents()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        
+        sortedMonths = eventsByMonth.keys.sorted { dateString1, dateString2 in
+            guard let date1 = formatter.date(from: dateString1),
                   let date2 = formatter.date(from: dateString2) else {
                 return false
             }
             return date1 < date2
         }
-
+        
         tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sortedMonths.count
     }
-    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let month = sortedMonths[section]
+        return eventsByMonth[month]?.count ?? 0
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let month = sortedMonths[indexPath.row]
-        cell.textLabel?.text = "\(month)\nLocation: Hyderabad"
+        
+        let month = sortedMonths[indexPath.section]
+        let event = eventsByMonth[month]?[indexPath.row]
+        
+        cell.textLabel?.text = event?.name
         cell.accessoryType = .disclosureIndicator
-        cell.backgroundColor = .clear
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedMonth = sortedMonths[indexPath.row]
-        let eventsVC = EventsViewController()
-        eventsVC.selectedMonth = selectedMonth
-        eventsVC.events = eventsByMonth[selectedMonth] ?? []
-        
-        navigationController?.pushViewController(eventsVC, animated: true)
-        
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sortedMonths[section]
     }
-    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let month = sortedMonths[indexPath.section]
+        let selectedEvent = eventsByMonth[month]?[indexPath.row]
+        
+        let eventDetailVC = EventDetailsViewController()
+        eventDetailVC.event = selectedEvent
+        navigationController?.pushViewController(eventDetailVC, animated: true)
+    }
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-    
-}
 
-
-class EventsViewController: LaunchViewContoller {
-    
-    var selectedMonth: String?
-    var events: [Event] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = selectedMonth
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let events = self.events[indexPath.row]
-        cell.textLabel?.text = "\(events.name) on \(events.date) at \(events.time)"
-        cell.accessoryType = .disclosureIndicator
-        return cell
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedEvent = events[indexPath.row]
-        let detailsVC = EventDetailsViewController()
-        detailsVC.event = selectedEvent
-        navigationController?.pushViewController(detailsVC, animated: true)
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
 
-class EventDetailsViewController: EventsViewController {
+import UIKit
+
+class EventDetailsViewController: UIViewController {
     
     var event: Event?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Event Details"
-        setupUI()
+        
+        self.view.backgroundColor = .white
+        self.title = event?.name
+        
+        setupViews()
     }
-
-    private func setupUI() {
-        view.backgroundColor = .white
+    
+    func setupViews() {
+        let nameLabel = UILabel()
+        nameLabel.text = "Event Name: \(event?.name ?? "N/A")"
+        nameLabel.frame = CGRect(x: 20, y: 100, width: 300, height: 40)
         
-        let nameLabel = createLabel(text: event?.name ?? "Event Name", fontSize: 24, isBold: true)
-        let dateLabel = createLabel(text: "Date: \(event?.date ?? "Unknown")")
-        let timeLabel = createLabel(text: " Time: \(event?.time ?? "Unknown")")
-        let locationLabel = createLabel(text: " Location: \(event?.location ?? "Unknown")")
+        let dateLabel = UILabel()
+        dateLabel.text = "Date: \(event?.date ?? "N/A")"
+        dateLabel.frame = CGRect(x: 20, y: 150, width: 300, height: 40)
         
-        let stackView = UIStackView(arrangedSubviews: [nameLabel,dateLabel, timeLabel, locationLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        stackView.alignment = .leading
+        let timeLabel = UILabel()
+        timeLabel.text = "Time: \(event?.time ?? "N/A")"
+        timeLabel.frame = CGRect(x: 20, y: 200, width: 300, height: 40)
         
+        let locationLabel = UILabel()
+        locationLabel.text = "Location: \(event?.location ?? "N/A")"
+        locationLabel.frame = CGRect(x: 20, y: 250, width: 300, height: 40)
         
-        view.addSubview(stackView)
-        
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-    }
-
-    private func createLabel(text: String, fontSize: CGFloat = 18, isBold: Bool = false) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.font = isBold ? UIFont.boldSystemFont(ofSize: fontSize) : UIFont.systemFont(ofSize: fontSize)
-        label.numberOfLines = 0
-        label.textColor = .black
-        return label
+        self.view.addSubview(nameLabel)
+        self.view.addSubview(dateLabel)
+        self.view.addSubview(timeLabel)
+        self.view.addSubview(locationLabel)
     }
 }
-
-
-

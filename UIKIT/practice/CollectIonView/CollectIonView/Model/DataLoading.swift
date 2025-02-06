@@ -1,6 +1,13 @@
 import UIKit
 import Foundation
 
+struct Event: Codable {
+    let name: String
+    let date: String
+    let time: String
+    let location: String
+}
+
 func eventDate(from dateString: String) -> Date? {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
