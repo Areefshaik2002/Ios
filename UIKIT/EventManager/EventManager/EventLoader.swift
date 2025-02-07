@@ -23,7 +23,7 @@ func monthYear(from dateString: String) -> String {
 func formattedEventDate(from dateString: String) -> String {
     guard let date = eventDate(from: dateString) else { return "Unknown" }
     let formatter = DateFormatter()
-    formatter.dateFormat = "EEEE, MMMM  d yyyy"
+    formatter.dateFormat = "EEEE, MMMM d yyyy"
     return formatter.string(from: date)
 }
 
