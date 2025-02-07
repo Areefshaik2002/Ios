@@ -76,6 +76,7 @@ class LaunchViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let hearderView = UIView()
         hearderView.backgroundColor = .init(red: 0.85, green: 1, blue: 0, alpha: 0.8)
