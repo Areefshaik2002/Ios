@@ -20,6 +20,13 @@ func monthYear(from dateString: String) -> String {
     return formatter.string(from: date)
 }
 
+func formattedEventDate(from dateString: String) -> String {
+    guard let date = eventDate(from: dateString) else { return "Unknown" }
+    let formatter = DateFormatter()
+    formatter.dateFormat = "EEEE, MMMM  d yyyy"
+    return formatter.string(from: date)
+}
+
 func loadEvents() -> [String: [Event]] {
     guard let url = Bundle.main.url(forResource: "events", withExtension: "json") else {
         print("File not found")

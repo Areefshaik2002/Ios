@@ -4,7 +4,7 @@ class LaunchViewController: UITableViewController {
     
     var eventsByMonth: [String: [Event]] = [:]
     var sortedMonths: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Schedule"
@@ -47,7 +47,6 @@ class LaunchViewController: UITableViewController {
         
         let month = sortedMonths[indexPath.section]
         let event = eventsByMonth[month]?[indexPath.row]
-        
         cell.textLabel?.text = event?.name
         cell.accessoryType = .disclosureIndicator
         return cell
