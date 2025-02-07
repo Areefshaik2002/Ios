@@ -7,10 +7,10 @@ class LaunchViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Event Months"
+        self.title = "Event Schedule"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.prompt = "Tap a month to view events"
-        self.view.backgroundColor = .systemMint
+        self.view.backgroundColor = .white
         self.navigationItem.backButtonTitle = "Back"
         self.navigationController?.navigationBar.tintColor = .black
         
@@ -76,6 +76,21 @@ class LaunchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let hearderView = UIView()
+        hearderView.backgroundColor = .init(red: 0.85, green: 1, blue: 0, alpha: 0.8)
+        let label = UILabel()
+        label.text = sortedMonths[section]
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.text = sortedMonths[section]
+        label.translatesAutoresizingMaskIntoConstraints = false
+        hearderView.addSubview(label)
+        label.leadingAnchor.constraint(equalTo: hearderView.leadingAnchor, constant: 20).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        label.centerYAnchor.constraint(equalTo: hearderView.centerYAnchor).isActive = true
+        return hearderView
     }
 }
 #Preview {
