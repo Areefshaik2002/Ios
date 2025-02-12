@@ -63,17 +63,6 @@ func loadEvents() -> [String: [Event]] {
         }
 
         let groupedEvents = Dictionary(grouping: events) { monthYear(from: $0.date) }
-
-//        let sortedKeys = groupedEvents.keys.sorted {
-//            guard let date1 = monthYearDate(from: $0), let date2 = monthYearDate(from: $1) else { return false
-//            }
-//            return date1 < date2
-//        }
-
-//        var sortedEvents: [String: [Event]] = [:]
-//        for key in sortedKeys {
-//            sortedEvents[key] = groupedEvents[key]
-//        }
         return groupedEvents
     } catch {
         print("Error decoding JSON: \(error)")

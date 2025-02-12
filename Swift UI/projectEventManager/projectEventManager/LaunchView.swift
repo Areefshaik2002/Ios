@@ -1,16 +1,17 @@
 import SwiftUI
 
 struct EventListView: View {
-
-    let eventsByMonth: [String: [Event]] = loadEvents()
-
-    var body: some View {
     
+    let eventsByMonth: [String: [Event]] = loadEvents()
+    
+    var body: some View {
+        
         NavigationView{
-            List{
+            VStack(alignment: .leading, spacing: 0){
                 VStack(alignment: .leading){
                     HStack(alignment: .center){
                         circleSetUp(inText: "JP")
+                            .padding(.leading, 10)
                         circleSetUp(inText: "K1")
                             .offset(x:-15)
                         Image("leaf")
@@ -27,50 +28,54 @@ struct EventListView: View {
                         }){
                             Text("+")
                                 .foregroundColor(.init(red: 180/255, green: 215/255, blue: 0/255))
-                                .font(.system(size: 55))
+                                .font(.system(size: 40))
                                 .fontWeight(.light)
+                                .padding(.trailing, 10)
                         }
                     }
-                    .padding(.bottom, 0)
                     Text("Schedule")
                         .font(.system(size: 40))
                         .fontWeight(.bold)
+                        .padding(.leading, 10)
                 }
-                ForEach(eventsByMonth.keys.sorted(by: {
-                    guard let date1 = monthYearDate(from: $0),
-                          let date2 = monthYearDate(from: $1) else{
-                        return false
-                    }
-                    return date1 < date2
-                }), id : \.self){ month in
-                    Section(header: Text(month)
-                        .foregroundColor(.black)
-                        .font(.system(size: 16))
-                        .bold()
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .frame(height: 45)
-                        .background(Color.init(red: 180/255, green: 215/255, blue: 0/255))
-                        .listRowInsets(EdgeInsets())
-                    ){
-                        ForEach(eventsByMonth[month] ?? [], id: \.name){ event in
-                            NavigationLink(destination: EventDetailView(event: event)){
-                                EventRowView(event: event)
-                                    .padding(.horizontal, -20)
-                                    .padding(.leading, 25)
+                .padding()
+                .background(Color.white)
+                
+                
+                List{
+                    ForEach(eventsByMonth.keys.sorted(by: {
+                        guard let date1 = monthYearDate(from: $0),
+                              let date2 = monthYearDate(from: $1) else{
+                            return false
+                        }
+                        return date1 < date2
+                    }), id : \.self){ month in
+                        Section(header: Text(month)
+                            .foregroundColor(.black)
+                            .font(.system(size: 16))
+                            .bold()
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(height: 45)
+                            .background(Color.init(red: 180/255, green: 215/255, blue: 0/255))
+                            .listRowInsets(EdgeInsets())
+                        ){
+                            ForEach(eventsByMonth[month] ?? [], id: \.name){ event in
+                                NavigationLink(destination: EventDetailView(event: event)){
+                                    EventRowView(event: event)
+//                                        .padding(.horizontal, -20)
+//                                        .padding(.leading, 25)
+                                }
                             }
                         }
                     }
                 }
+                .listStyle(PlainListStyle())
+                .listRowBackground(Color.white)
             }
-            .listStyle(PlainListStyle())
-            .listSectionSeparator(.hidden)
-            .listRowBackground(Color.white)
         }
-        
     }
 }
-
 struct EventRowView: View {
     let event: Event
     
@@ -78,16 +83,16 @@ struct EventRowView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(formattedDay(from: event.date))
-                    .font(.system(size: 26))
+                    .font(.system(size: 22))
                     .fontWeight(.semibold)
                     .foregroundColor(.black)
                 Text(formattedWeekday(from: event.date))
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                     .fontWeight(.light)
                     .foregroundColor(.black)
             }
             Divider()
-                .frame(width: 50, height: 80)
+                .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
                 Text(event.time)
                     .font(.headline)

@@ -6,7 +6,7 @@ struct EventDetailView: View {
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.gray, .gray]), startPoint: .top, endPoint: .bottom)
-                .opacity(0.1)
+                .opacity(0.2)
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
                 Text("\(formattedEventDate(from: event.date))")
