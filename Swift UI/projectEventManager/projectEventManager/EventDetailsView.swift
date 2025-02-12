@@ -2,7 +2,8 @@ import SwiftUI
 
 struct EventDetailView: View {
     let event: Event
-
+//    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [.gray, .gray]), startPoint: .top, endPoint: .bottom)
@@ -61,6 +62,17 @@ struct EventDetailView: View {
             .background(Color.white)
             .cornerRadius(16)
             .navigationTitle("Event")
+//            .navigationBarBackButtonHidden(true)
+//            .toolbar {
+//                ToolbarItem(placement: .topBarLeading) {
+//                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
+//                        Image(systemName: "chevron.left")
+//                            .foregroundColor(Color(red: 180/255, green: 215/255, blue: 0))
+//                            .frame(width: 30, height: 30)
+//                            .font(.system(size: 24, weight: .bold))
+//                    }
+//                }
+//            }
         }
     }
 }
@@ -72,6 +84,6 @@ struct circleSetUp: View {
             .fill(Color.Resolved(red: 0/255, green: 100/255, blue: 0/255))
             .frame(width: 30, height: 30)
             .overlay(Text(inText).foregroundColor(.white).fontWeight(.semibold))
-            
     }
 }
+

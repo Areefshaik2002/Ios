@@ -107,6 +107,6 @@ struct EventRowView: View {
     }
 }
 
-#Preview{
+#Preview {
     EventListView()
 }
