@@ -58,7 +58,7 @@ struct EventListView: View {
                                     .padding()
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .frame(height: 45)
-                                    .background(Color.init(red: 180/255, green: 215/255, blue: 0/255))
+                                    .background(Color.init(red: 190/255, green: 215/255, blue: 0/255))
                                     .listRowInsets(EdgeInsets())
                                     ScrollView(.vertical){
                                         LazyVStack{
@@ -72,7 +72,7 @@ struct EventListView: View {
                                     }
                                 }
                             }
-                            .frame(width: UIScreen.main.bounds.width , height: .infinity)
+                            .frame(width: UIScreen.main.bounds.width)
                         }
                     }
                 }
