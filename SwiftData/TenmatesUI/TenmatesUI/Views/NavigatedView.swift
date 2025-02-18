@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NavigatedView: View {
     
-    @StateObject var courtViewModel : CourtViewModel
+    @StateObject var courtViewModel : EventViewModel
     
     var body: some View{
             TableTennisAnimationView.init()
@@ -55,6 +56,6 @@ struct NavigatedView: View {
             }
         }
     }
-//#Preview {
-//    NavigatedView(courtViewModel: )
-//}
+#Preview {
+    NavigatedView(courtViewModel: EventViewModel())
+}

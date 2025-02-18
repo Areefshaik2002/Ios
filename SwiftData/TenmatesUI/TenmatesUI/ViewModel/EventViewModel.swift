@@ -6,9 +6,17 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
-class CourtViewModel: ObservableObject {
+let appColor = Color.init(red: 0.85, green: 1, blue: 0, opacity: 0.4)
+let appColorGradient = LinearGradient(colors: [Color(appColor), .black, Color(appColor)], startPoint: .topLeading, endPoint: .bottomTrailing)
+
+class EventViewModel: ObservableObject {
     @Published var courts: [CourtCell] = []
+    @Published var isWithInTeam:Bool = false
+    @Published var isCoachAvailable:Bool = true
+    @Published var isAudienceAvailable:Bool = true
     
     init(){
         loadCourts()
