@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EventDetailView: View {
     let event: Event
-//    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack{
@@ -62,17 +62,17 @@ struct EventDetailView: View {
             .background(Color.white)
             .cornerRadius(16)
             .navigationTitle("Event")
-//            .navigationBarBackButtonHidden(true)
-//            .toolbar {
-//                ToolbarItem(placement: .topBarLeading) {
-//                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
-//                        Image(systemName: "chevron.left")
-//                            .foregroundColor(Color(red: 180/255, green: 215/255, blue: 0))
-//                            .frame(width: 30, height: 30)
-//                            .font(.system(size: 24, weight: .bold))
-//                    }
-//                }
-//            }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color(red: 180/255, green: 215/255, blue: 0))
+                            .frame(width: 30, height: 30)
+                            .font(.system(size: 24, weight: .bold))
+                    }
+                }
+            }
         }
     }
 }

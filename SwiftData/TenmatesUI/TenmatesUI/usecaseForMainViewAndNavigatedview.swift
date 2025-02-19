@@ -206,40 +206,37 @@ struct AudienceViewEdit: View {
 struct teamView: View {
     @StateObject private var viewModel = EventViewModel()
     var body: some View {
-            VStack(alignment: .leading, spacing: 8){
-                Text("Team").foregroundStyle(.secondary).bold()
+        VStack(alignment: .leading, spacing: 8){
+            Text("Team").foregroundStyle(.secondary).bold()
+            HStack{
+                Text("The Galactic Federation of PickleBall Pioneers")
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(2)
+                    .bold()
+                Spacer()
                 HStack{
-                    Text("The Galactic Federation of PickleBall Pioneers")
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(2)
+                    circleDesign(imageName: "medal").foregroundColor(.black)
+                    Text("Spin Shot League")
+                        .font(.caption)
                         .bold()
-                    Spacer()
-                    HStack{
-                        circleDesign(imageName: "medal").foregroundColor(.black)
-                        Text("Spin Shot League")
-                            .font(.caption)
-                            .bold()
-                    }
-                    .padding(.all, 5)
-                    .frame(width: 170)
-                    .background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.2))
-                    .cornerRadius(50)
                 }
-                .padding()
-                .background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.1))
-                .cornerRadius(10)
+                .padding(.all, 5)
+                .frame(width: 170)
+                .background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.2))
+                .cornerRadius(50)
             }
-            .padding(.all,10)
+            .padding()
+            .background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.1))
+            .cornerRadius(10)
+        }
+        .padding(.all,10)
     }
 }
 struct TableTennisAnimationView: View {
     @State private var scaleEffect: CGFloat = 0.1
-    @State private var opacity: Double = 0
-    @State private var showText: Bool = false
+    @State private var opacity: Double = 0.1
     @State private var showSparkles: Bool = false
     @State private var paddleRotation: Double = -10
-    @State private var ballPosition: CGPoint = CGPoint(x: 0, y: -50)
-    @State private var ballOpacity: Double = 0
     @State private var movingRight: Bool = true
     var appColor:Color = Color.init(red: 0.75, green: 0.9, blue: 0)
 
@@ -256,7 +253,7 @@ struct TableTennisAnimationView: View {
                 ZStack {
                     Circle()
                         .fill(Color.white)
-                        .frame(width: 50, height: 50)
+                        .frame(width: 45, height: 45)
                         .scaleEffect(scaleEffect)
                         .opacity(opacity)
                         .animation(.easeInOut(duration: 1).delay(0.3), value: scaleEffect)
@@ -264,36 +261,43 @@ struct TableTennisAnimationView: View {
                     Image(systemName: "tennis.racket")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 80, height: 180)
+                        .frame(width: 100, height: 100)
                         .foregroundColor(Color.init(red: 0.85, green: 1, blue: 0))
                         .rotationEffect(.degrees(-190+paddleRotation))
                         .offset(x: 70, y: movingRight ? -30 : 40)
-                        .animation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: movingRight)
+                        .animation(.easeInOut(duration: 0.6), value: movingRight)
                     
                     Image(systemName: "tennis.racket")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 80, height: 120)
+                        .frame(width: 100, height: 100)
                         .foregroundColor(Color.init(red: 0.85, green: 1, blue: 0))
                         .rotationEffect(.degrees(paddleRotation))
                         .offset(x: -70, y: movingRight ? 30 : -20)
-                        .animation(.easeInOut(duration: 0.6).repeatForever(autoreverses: true), value: movingRight)
+                        .animation(.easeInOut(duration: 0.6), value: movingRight)
 
                     if showSparkles {
                         ForEach(0..<100, id: \.self) { index in
                             Circle()
                                 .fill(Color.init(red: 0.85, green: 1, blue: 0))
                                 .frame(width: 10, height: 10)
-                                .offset(x: CGFloat.random(in: -150...150),
-                                        y: CGFloat.random(in: -150...150))
+                                .offset(x: CGFloat.random(in: -100...100),
+                                        y: CGFloat.random(in: -100...90))
                                 .opacity(1 - Double(index) / 10)
                                 .scaleEffect(1 + CGFloat(index) * 0.1)
                                 .animation(.easeOut(duration: 0.1).repeatForever(autoreverses: true).delay(Double(index) * 0.05), value: showSparkles)
                         }
                     }
+                    
+                    Text("The Event has\nbeen created!")
+                        .font(.system(size: 30, weight: .bold))
+                        .frame(width: 260, height: 100)
+                        .padding(.top, 300)
+                        .scaleEffect(scaleEffect)
+                        .animation(.easeInOut(duration: 1).delay(0.3), value: scaleEffect)
+                    
                 }
                 .frame(width: 200, height: 200)
-                
                 Spacer()
             }
         }
@@ -308,6 +312,3 @@ struct TableTennisAnimationView: View {
     }
 }
 
-#Preview {
-    MainView()
-}

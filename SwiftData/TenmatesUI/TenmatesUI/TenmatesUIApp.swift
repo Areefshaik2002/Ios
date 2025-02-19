@@ -11,7 +11,7 @@ import SwiftUI
 struct TenmatesUIApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            PlayerInfoView()
         }
     }
 }

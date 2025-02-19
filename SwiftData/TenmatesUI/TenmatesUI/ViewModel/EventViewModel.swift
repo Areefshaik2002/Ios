@@ -9,12 +9,12 @@ import Foundation
 import Combine
 import SwiftUI
 
-let appColor = Color.init(red: 0.85, green: 1, blue: 0, opacity: 0.4)
-let appColorGradient = LinearGradient(colors: [Color(appColor), .black, Color(appColor)], startPoint: .topLeading, endPoint: .bottomTrailing)
+let appColor = Color.init(red: 0.85, green: 1, blue: 0)
+let appColorGradient = LinearGradient(colors: [Color(appColor).opacity(0.5), .black, Color(appColor).opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing)
 
 class EventViewModel: ObservableObject {
     @Published var courts: [CourtCell] = []
-    @Published var isWithInTeam:Bool = false
+    @Published var isWithInTeam:Bool = true
     @Published var isCoachAvailable:Bool = true
     @Published var isAudienceAvailable:Bool = true
     

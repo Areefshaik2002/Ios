@@ -4,7 +4,6 @@ import Combine
 struct MainView: View {
     
     @StateObject private var viewModel = EventViewModel()
-    var appColor: Color = Color.init(red: 0.75, green: 0.9, blue: 0)
     
     var body: some View {
         NavigationStack {
@@ -46,7 +45,7 @@ struct MainView: View {
                             Text("Play within my Team").bold()
                         }
                         .padding(.top , -8)
-                        Toggle("", isOn: $viewModel.isWithInTeam).tint(appColor)
+//                        Toggle("", isOn: $viewModel.isWithInTeam).tint(appColor)
                     }
                 }
                 .padding(.horizontal , 10)
