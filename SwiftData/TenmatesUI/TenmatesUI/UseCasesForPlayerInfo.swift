@@ -36,7 +36,7 @@ struct textValue:View {
 }
 
 struct playerDetils : View {
-    @StateObject private var viewModel = PlayerViewModel()
+    private var viewModel = PlayerViewModel()
     var body: some View {
         VStack(alignment: .leading) {
             HStack() {

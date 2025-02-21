@@ -10,8 +10,8 @@ import Combine
 
 struct PlayerInfoView: View {
     
-    @StateObject private var viewModel = PlayerViewModel()
-    @StateObject var recentMatchesViewModel = RecentMatchesViewModel()
+    var viewModel = PlayerViewModel()
+    var recentMatchesViewModel = RecentMatchesViewModel()
     
     var body: some View {
         NavigationStack{

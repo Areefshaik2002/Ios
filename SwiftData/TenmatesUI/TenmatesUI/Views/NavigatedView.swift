@@ -10,7 +10,7 @@ import Combine
 
 struct NavigatedView: View {
     @State private var scaleEffect: CGFloat = 0.1
-    @StateObject var courtViewModel : EventViewModel
+    var ViewModel = EventViewModel()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View{
@@ -27,7 +27,7 @@ struct NavigatedView: View {
                         .foregroundColor(.init(red: 0.85, green: 1, blue: 0))
                         .fontWeight(.bold)
                         .font(.system(size: 24))
-                    Text("\(courtViewModel.courts.count) courts")
+                    Text("\(ViewModel.event?.event?.eventCourts?.count ?? 0) courts")
                         .font(.system(size: 24))
                         .offset(x:20)
                 }
@@ -65,6 +65,4 @@ struct NavigatedView: View {
         }
     }
 }
-#Preview {
-    NavigatedView(courtViewModel: EventViewModel())
-}
+

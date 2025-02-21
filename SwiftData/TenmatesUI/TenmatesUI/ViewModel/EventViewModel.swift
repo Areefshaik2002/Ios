@@ -8,28 +8,30 @@
 import Foundation
 import Combine
 import SwiftUI
+import Observation
 
 let appColor = Color.init(red: 0.85, green: 1, blue: 0)
 let appColorGradient = LinearGradient(colors: [Color(appColor).opacity(0.5), .black, Color(appColor).opacity(0.5)], startPoint: .topLeading, endPoint: .bottomTrailing)
 
-class EventViewModel: ObservableObject {
-    @Published var courts: [CourtCell] = []
-    @Published var isWithInTeam:Bool = true
-    @Published var isCoachAvailable:Bool = true
-    @Published var isAudienceAvailable:Bool = true
+@Observable
+class EventViewModel{
+    var event: Welcome?
+    var eventCourt: EventCourt?
+    var places : Place?
+    var address: AddressDetail?
+    var errorMessage: String?
+    var events: EventCourt?
+    var eventCoach: EventCoach?
+    var users: User?
     
-    init(){
-        loadCourts()
-    }
-    
-    func loadCourts() {
-        courts = [
-            CourtCell(courtNumber: 1, singleOrDouble: "Single", weekDay: "wednesday", month: "June", date: 02, time: "8AM", duration: "2h", location: "web bridge pickel ball courts", numberOfPlayers: 2, district: "Sports District", city: "Orlando", pincode: "FL 32801"),
-            CourtCell(courtNumber: 2, singleOrDouble: "Single", weekDay: "wednesday", month: "June", date: 02, time: "10AM", duration: "2h", location: "web bridge pickel ball courts", numberOfPlayers: 2, district: "Sports District", city: "Orlando", pincode: "FL 32801"),
-            CourtCell(courtNumber: 3, singleOrDouble: "Single", weekDay: "wednesday", month: "June", date: 02, time: "9AM", duration: "2h", location: "web bridge pickel ball courts", numberOfPlayers: 2, district: "Sports District", city: "Orlando", pincode: "FL 32801"),
-            CourtCell(courtNumber: 4, singleOrDouble: "Single", weekDay: "wednesday", month: "June", date: 02, time: "7AM", duration: "2h", location: "web bridge pickel ball courts", numberOfPlayers: 2, district: "Sports District", city: "Orlando", pincode: "FL 32801"),
-            CourtCell(courtNumber: 5, singleOrDouble: "Single", weekDay: "wednesday", month: "June", date: 02, time: "10AM", duration: "2h", location: "web bridge pickel ball courts", numberOfPlayers: 2, district: "Sports District", city: "Orlando", pincode: "FL 32801")
-        ]
-
+    func fetchEvent(eventID: String) async {
+        do {
+            let fetchedEvent = try await fetchEventDetails(eventID: eventID )
+            event = fetchedEvent
+        } catch {
+            errorMessage = error.localizedDescription
+        }
     }
 }
+
+

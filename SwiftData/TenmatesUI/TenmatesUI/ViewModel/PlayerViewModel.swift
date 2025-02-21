@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 import Combine
+import Observation
 
-class PlayerViewModel: ObservableObject {
+@Observable
+class PlayerViewModel {
     
-    @Published  var players: [PlayerModel] = []
+    var players: [PlayerModel] = []
     
     init(){
         loadPlayers()

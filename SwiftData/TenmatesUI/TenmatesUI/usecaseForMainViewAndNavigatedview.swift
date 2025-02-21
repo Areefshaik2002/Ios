@@ -1,48 +1,84 @@
 import SwiftUI
 import Combine
+import Foundation
+
+
+struct EventInitialDetailView: View {
+    let event : Event?
+    var viewModel = EventViewModel()
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Review")
+                .font(.title)
+                .bold()
+            Text("It's time to review your event information before publishing it")
+                .font(.headline)
+                .foregroundStyle(.secondary)
+        }
+        .padding(.vertical)
+        
+        VStack(alignment: .leading) {
+            Text("Event Type").foregroundStyle(.secondary).bold()
+            HStack {
+                Image(systemName: "trophy")
+                    .foregroundColor(appColor)
+                Text(event?.eventType ?? "com").bold()
+                Spacer()
+                ZStack {
+                    Color(appColor).opacity(0.2).cornerRadius(50)
+                        .frame(width: 95, height: 38)
+                    HStack {
+                        circleDesign(imageName: "lock.rotation.open").foregroundColor(.black)
+                        Text("Public")
+                    }
+                }
+            }
+            .offset(y: -7)
+            
+            HStack {
+                VStack(alignment: .leading , spacing: 8) {
+                    Text("Event Dynamic")
+                        .bold()
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                    if viewModel.event?.event?.opponentTeamName == nil{
+                        Text("Play within my Team").bold()
+                    }
+                }
+                .padding(.top , -8)
+            }
+        }
+        .padding(.horizontal , 10)
+        .task {
+            await viewModel.fetchEvent(eventID: "3926")
+        }
+    }
+}
 
 struct CourtView: View {
-    let court: CourtCell
-    var appColor:Color = Color.init(red: 0.75, green: 0.9, blue: 0)
-    
+//    var viewModel: EventViewModel?
+//    var event: Event?
+    var eventCourt: EventCourt?
     var body: some View {
         VStack (alignment: .leading){
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
-                    Text("Court \(court.courtNumber)")
+                    Text("Court \(eventCourt?.order ?? 0)")
                         .font(.headline)
                     Spacer()
-                    Text("\(court.singleOrDouble)")
+                    Text(eventCourt?.matchType ?? "")
                         .font(.subheadline)
                         .foregroundColor(.gray)
-                        .frame(width: 80, height: 30).background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.15)).cornerRadius(30)
-                }
+                    .frame(width: 80, height: 30).background(Color.init(red: 0.85, green: 1, blue: 0).opacity(0.15)).cornerRadius(30)}
                 .padding(.bottom, 10)
-                VStack(alignment: .leading){
-                    HStack {
-                        Image(systemName: "calendar")
-                            .foregroundColor(.init(red: 0.85, green: 1, blue: 0))
-                        VStack(alignment: .leading) {
-                            Text("\(court.weekDay), \(court.month) \(court.date), \(court.time)")
-                            Text("\(court.duration) duration")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                    }
-                    
-                    HStack {
-                        Image(systemName: "location.north.circle")
-                            .foregroundColor(.init(red: 0.85, green: 1, blue: 0))
-                        VStack(alignment: .leading) {
-                            Text("\(court.location)")
-                            Text("\(court.district), \(court.city), \(court.pincode)")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
+                ScrollView(.horizontal , showsIndicators: false) {
+                    LazyHStack {
+                        ForEach(eventCourt?.eventCourtScheduleOptions ?? [] , id: \.id) { eventCourtScheduleOption in
+                            OptionDetails(eventCourtScheduleOption: eventCourtScheduleOption)
                         }
                     }
                 }
-                .padding()
-                .background(Color.init(red: 0.85, green: 1, blue: 1).opacity(0.05))
+            }
                 HStack(spacing: -10) {
                     Image("pic1")
                         .resizable()
@@ -60,9 +96,11 @@ struct CourtView: View {
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                         .shadow(radius: 3)
                     
-                    Text("\(court.numberOfPlayers) players")
-                        .font(.subheadline)
-                        .padding(.leading, 15)
+                    if (eventCourt?.matchType ?? "") == "mt_singles"{
+                        Text("     2 players")
+                    }else if (eventCourt?.matchType ?? "") == "mt_doubles"{
+                        Text("     4 players")
+                    }
                     
                     Spacer()
                     
@@ -78,6 +116,43 @@ struct CourtView: View {
             .cornerRadius(10)
             .padding(.horizontal)
         }
+    }
+//}
+
+struct OptionDetails: View {
+    let eventCourtScheduleOption: EventCourtScheduleOption
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            
+//            Text("\(eventCourtScheduleOption.id ?? 0)")
+            
+            HStack {
+                Image(systemName: "calendar")
+                    .foregroundColor(appColor)
+                VStack(alignment: .leading) {
+                    Text(dateFormatter(from: eventCourtScheduleOption.startTime ?? ""))
+                    Text("\(eventCourtScheduleOption.duration ?? 0)")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+            }
+            HStack {
+                Image(systemName: "location.north.circle")
+                    .foregroundColor(appColor)
+                VStack(alignment: .leading) {
+                    Text(eventCourtScheduleOption.place?.placeType ?? "")
+                    Text("\(eventCourtScheduleOption.place?.address ?? "")")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)}}
+//                    Text(place?.placeType ?? "")
+//                    Text("\(place?.address ?? "")")
+//                        .font(.subheadline)
+//                        .foregroundColor(.gray)}}
+        }
+        .padding()
+        .frame(width: 300, height: 150)
+        .background(Color.init(red: 0.85, green: 1, blue: 1).opacity(0.05))
     }
 }
 
@@ -153,26 +228,35 @@ struct EditAudienceView: View {
 }
 
 struct coachView: View {
+    //    var viewModel = EventViewModel()
+    let event : Event?
     var appColor:Color = Color.init(red: 0.75, green: 0.9, blue: 0)
     var body: some View {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Coach")
-                    .foregroundStyle(.secondary)
-                    .bold()
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Coach")
+                .foregroundStyle(.secondary)
+                .bold()
+            HStack {
                 HStack {
-                    HStack {
-                        Images(imageName: "pic1")
-                        Text("Tom").foregroundStyle(.secondary)
+                    if let coachImage = event?.eventCoaches?.first?.user?.avatarFileAttachmentURL {
+                        AsyncImage(url: URL(string: coachImage))
                     }
-                    Spacer()
-                    NavigationLink(destination: EditCoachNavigation()) {
-                        Text("Edit Coach").underline().accentColor(appColor)
+                    else {
+                        Image(systemName: "person.circle")
+                            .font(.system(size: 30))
                     }
+                    
+                    Text("\(event?.eventCoaches?.first?.user?.firstName ?? "") \(event?.eventCoaches?.first?.user?.lastName ?? "")").foregroundStyle(.secondary)
+                }
+                Spacer()
+                NavigationLink(destination: EditCoachNavigation()) {
+                    Text("Edit Coach").underline().accentColor(appColor)
                 }
             }
-            .padding(.all,10)
         }
+        .padding(.all,10)
     }
+}
 
 struct AudienceViewEdit: View {
     var appColor:Color = Color.init(red: 0.75, green: 0.9, blue: 0)
@@ -204,7 +288,8 @@ struct AudienceViewEdit: View {
 }
 
 struct teamView: View {
-    @StateObject private var viewModel = EventViewModel()
+    
+    var viewModel = EventViewModel()
     var body: some View {
         VStack(alignment: .leading, spacing: 8){
             Text("Team").foregroundStyle(.secondary).bold()
@@ -232,6 +317,7 @@ struct teamView: View {
         .padding(.all,10)
     }
 }
+
 struct TableTennisAnimationView: View {
     @State private var scaleEffect: CGFloat = 0.1
     @State private var opacity: Double = 0.1
@@ -239,14 +325,14 @@ struct TableTennisAnimationView: View {
     @State private var paddleRotation: Double = -10
     @State private var movingRight: Bool = true
     var appColor:Color = Color.init(red: 0.75, green: 0.9, blue: 0)
-
-
+    
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [appColor, .black],
                            startPoint: .top, endPoint: .bottom).opacity(0.6)
                 .ignoresSafeArea()
-
+            
             VStack {
                 Spacer()
                 
@@ -275,7 +361,7 @@ struct TableTennisAnimationView: View {
                         .rotationEffect(.degrees(paddleRotation))
                         .offset(x: -70, y: movingRight ? 30 : -20)
                         .animation(.easeInOut(duration: 0.6), value: movingRight)
-
+                    
                     if showSparkles {
                         ForEach(0..<100, id: \.self) { index in
                             Circle()
@@ -311,4 +397,21 @@ struct TableTennisAnimationView: View {
         }
     }
 }
+
+func dateFormatter(from isoString: String, outputTimeZone: TimeZone = TimeZone(abbreviation: "UTC")!) -> String {
+    let isoFormatter = ISO8601DateFormatter()
+    isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    
+    guard let date = isoFormatter.date(from: isoString) else {
+        print("Failed to parse date from string.")
+        return ""
+    }
+    
+    let formatter = DateFormatter()
+    formatter.dateFormat = "E, d MMM hh:mm a"
+    formatter.timeZone = outputTimeZone
+    
+    return formatter.string(from: date)
+}
+
 
