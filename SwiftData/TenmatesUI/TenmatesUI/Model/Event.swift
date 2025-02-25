@@ -1,7 +1,7 @@
 import Foundation
 
 struct Welcome: Codable {
-    let event: Event?
+    var event: Event?
 }
 
 struct Event: Codable {
@@ -97,7 +97,6 @@ struct Event: Codable {
     }
 }
 
-// MARK: - CurrentUserEventDetail
 struct CurrentUserEventDetail: Codable {
     let isPlayer: Bool?
     let isCoach: String?
@@ -116,7 +115,6 @@ struct CurrentUserEventDetail: Codable {
     }
 }
 
-// MARK: - User
 struct User: Codable {
     let id: Int?
     let firstName, lastName: String?
@@ -131,7 +129,6 @@ struct User: Codable {
     }
 }
 
-// MARK: - EventCoach
 struct EventCoach: Codable {
     let id: Int?
     let role: String?
@@ -149,7 +146,6 @@ struct EventCoach: Codable {
     }
 }
 
-// MARK: - EventCourt
 struct EventCourt: Codable, Identifiable {
     let id: Int
     let matchType, startTime, endTime: String?
@@ -184,7 +180,6 @@ struct EventCourt: Codable, Identifiable {
     }
 }
 
-// MARK: - CourtSide
 struct CourtSide: Codable {
     let id: Int?
     let side: String?
@@ -207,7 +202,6 @@ struct CourtSide: Codable {
     }
 }
 
-// MARK: - EventCourtPlayer
 struct EventCourtPlayer: Codable {
     let id, eventCourtID, courtSideID: Int?
     let position: String?
@@ -221,7 +215,6 @@ struct EventCourtPlayer: Codable {
     }
 }
 
-// MARK: - EventCourtScheduleOption
 struct EventCourtScheduleOption: Codable {
     let id: Int?
     let startTime: String?
@@ -235,7 +228,6 @@ struct EventCourtScheduleOption: Codable {
     }
 }
 
-// MARK: - Place
 struct Place: Codable {
     let id: Int?
     let name, address, contactNumber, website: String?
@@ -252,7 +244,6 @@ struct Place: Codable {
     }
 }
 
-// MARK: - AddressDetail
 struct AddressDetail: Codable {
     let id: Int?
     let deliveryLine1: String?
@@ -283,7 +274,6 @@ struct AddressDetail: Codable {
     }
 }
 
-// MARK: - UserPermissions
 struct UserPermissions: Codable {
     let eventCourtCancel, eventCourtUndoCancel, eventCourtDestroy: UserPermission?
 
@@ -294,7 +284,6 @@ struct UserPermissions: Codable {
     }
 }
 
-// MARK: - UserPermission
 struct UserPermission: Codable {
     let access: Access?
 }
@@ -304,7 +293,6 @@ enum Access: String, Codable {
     case upNotAvailable = "up_not_available"
 }
 
-// MARK: - EventInvitee
 struct EventInvitee: Codable {
     let id, eventID: Int?
     let user: User?
@@ -316,13 +304,12 @@ struct EventInvitee: Codable {
     }
 }
 
-// MARK: - GlobalPlayerConfirmationCounts
 struct GlobalPlayerConfirmationCounts: Codable {
 }
 
 // MARK: - Encode/decode helpers
 
-//class String: Codable, Hashable {
+//class JSONNull: Codable, Hashable {
 //
 //    public static func == (lhs: String, rhs: String) -> Bool {
 //            return true
@@ -562,18 +549,18 @@ struct GlobalPlayerConfirmationCounts: Codable {
 //    }
 //}
 
-struct CourtCell: Identifiable  {
-    let id = UUID()
-    let courtNumber : Int
-    let singleOrDouble : String
-    let weekDay : String
-    let month : String
-    let date : Int
-    let time : String
-    let duration : String
-    let location : String
-    let numberOfPlayers : Int
-    let district : String
-    let city : String
-    let pincode : String
-}
+//struct CourtCell: Identifiable  {
+//    let id = UUID()
+//    let courtNumber : Int
+//    let singleOrDouble : String
+//    let weekDay : String
+//    let month : String
+//    let date : Int
+//    let time : String
+//    let duration : String
+//    let location : String
+//    let numberOfPlayers : Int
+//    let district : String
+//    let city : String
+//    let pincode : String
+//}

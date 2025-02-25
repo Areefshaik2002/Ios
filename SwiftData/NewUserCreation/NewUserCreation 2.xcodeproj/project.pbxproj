@@ -6,31 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		963638012D68B70F002440F8 /* TeamSelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963637FC2D68B70F002440F8 /* TeamSelectionModel.swift */; };
-		963638022D68B70F002440F8 /* TeamSelectionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963637FD2D68B70F002440F8 /* TeamSelectionUseCase.swift */; };
-		963638032D68B70F002440F8 /* TeamSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963637FE2D68B70F002440F8 /* TeamSelectionView.swift */; };
-		963638042D68B70F002440F8 /* TeamSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963637FF2D68B70F002440F8 /* TeamSelectionViewModel.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		96112E002D62FC6900BDADFE /* TenmatesUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TenmatesUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		963637FC2D68B70F002440F8 /* TeamSelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectionModel.swift; sourceTree = "<group>"; };
-		963637FD2D68B70F002440F8 /* TeamSelectionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectionUseCase.swift; sourceTree = "<group>"; };
-		963637FE2D68B70F002440F8 /* TeamSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectionView.swift; sourceTree = "<group>"; };
-		963637FF2D68B70F002440F8 /* TeamSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectionViewModel.swift; sourceTree = "<group>"; };
+		96C730CC2D6C3C2F00FEA309 /* NewUserCreation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewUserCreation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		96112E022D62FC6900BDADFE /* TenmatesUI */ = {
+		96C730CE2D6C3C2F00FEA309 /* NewUserCreation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TenmatesUI;
+			path = NewUserCreation;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		96112DFD2D62FC6900BDADFE /* Frameworks */ = {
+		96C730C92D6C3C2F00FEA309 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,95 +29,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		96112DF72D62FC6900BDADFE = {
+		96C730C32D6C3C2F00FEA309 = {
 			isa = PBXGroup;
 			children = (
-				96112E022D62FC6900BDADFE /* TenmatesUI */,
-				96112E012D62FC6900BDADFE /* Products */,
-				963638002D68B70F002440F8 /* Archive */,
+				96C730CE2D6C3C2F00FEA309 /* NewUserCreation */,
+				96C730CD2D6C3C2F00FEA309 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		96112E012D62FC6900BDADFE /* Products */ = {
+		96C730CD2D6C3C2F00FEA309 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96112E002D62FC6900BDADFE /* TenmatesUI.app */,
+				96C730CC2D6C3C2F00FEA309 /* NewUserCreation.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		963638002D68B70F002440F8 /* Archive */ = {
-			isa = PBXGroup;
-			children = (
-				963637FC2D68B70F002440F8 /* TeamSelectionModel.swift */,
-				963637FD2D68B70F002440F8 /* TeamSelectionUseCase.swift */,
-				963637FE2D68B70F002440F8 /* TeamSelectionView.swift */,
-				963637FF2D68B70F002440F8 /* TeamSelectionViewModel.swift */,
-			);
-			path = Archive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96112DFF2D62FC6900BDADFE /* TenmatesUI */ = {
+		96C730CB2D6C3C2F00FEA309 /* NewUserCreation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96112E0E2D62FC6A00BDADFE /* Build configuration list for PBXNativeTarget "TenmatesUI" */;
+			buildConfigurationList = 96C730DA2D6C3C3100FEA309 /* Build configuration list for PBXNativeTarget "NewUserCreation" */;
 			buildPhases = (
-				96112DFC2D62FC6900BDADFE /* Sources */,
-				96112DFD2D62FC6900BDADFE /* Frameworks */,
-				96112DFE2D62FC6900BDADFE /* Resources */,
+				96C730C82D6C3C2F00FEA309 /* Sources */,
+				96C730C92D6C3C2F00FEA309 /* Frameworks */,
+				96C730CA2D6C3C2F00FEA309 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				96112E022D62FC6900BDADFE /* TenmatesUI */,
+				96C730CE2D6C3C2F00FEA309 /* NewUserCreation */,
 			);
-			name = TenmatesUI;
+			name = NewUserCreation;
 			packageProductDependencies = (
 			);
-			productName = TenmatesUI;
-			productReference = 96112E002D62FC6900BDADFE /* TenmatesUI.app */;
+			productName = NewUserCreation;
+			productReference = 96C730CC2D6C3C2F00FEA309 /* NewUserCreation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		96112DF82D62FC6900BDADFE /* Project object */ = {
+		96C730C42D6C3C2F00FEA309 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					96112DFF2D62FC6900BDADFE = {
+					96C730CB2D6C3C2F00FEA309 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 96112DFB2D62FC6900BDADFE /* Build configuration list for PBXProject "TenmatesUI" */;
+			buildConfigurationList = 96C730C72D6C3C2F00FEA309 /* Build configuration list for PBXProject "NewUserCreation 2" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 96112DF72D62FC6900BDADFE;
+			mainGroup = 96C730C32D6C3C2F00FEA309;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 96112E012D62FC6900BDADFE /* Products */;
+			productRefGroup = 96C730CD2D6C3C2F00FEA309 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96112DFF2D62FC6900BDADFE /* TenmatesUI */,
+				96C730CB2D6C3C2F00FEA309 /* NewUserCreation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		96112DFE2D62FC6900BDADFE /* Resources */ = {
+		96C730CA2D6C3C2F00FEA309 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,21 +115,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		96112DFC2D62FC6900BDADFE /* Sources */ = {
+		96C730C82D6C3C2F00FEA309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963638012D68B70F002440F8 /* TeamSelectionModel.swift in Sources */,
-				963638022D68B70F002440F8 /* TeamSelectionUseCase.swift in Sources */,
-				963638032D68B70F002440F8 /* TeamSelectionView.swift in Sources */,
-				963638042D68B70F002440F8 /* TeamSelectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		96112E0C2D62FC6A00BDADFE /* Debug */ = {
+		96C730D82D6C3C3100FEA309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -204,7 +177,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -215,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		96112E0D2D62FC6A00BDADFE /* Release */ = {
+		96C730D92D6C3C3100FEA309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,7 +234,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -271,20 +244,19 @@
 			};
 			name = Release;
 		};
-		96112E0F2D62FC6A00BDADFE /* Debug */ = {
+		96C730DB2D6C3C3100FEA309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TenmatesUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NewUserCreation/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,7 +264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.TenmatesUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.NewUserCreation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -300,20 +272,19 @@
 			};
 			name = Debug;
 		};
-		96112E102D62FC6A00BDADFE /* Release */ = {
+		96C730DC2D6C3C3100FEA309 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TenmatesUI/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NewUserCreation/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.TenmatesUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.NewUserCreation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -332,25 +303,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96112DFB2D62FC6900BDADFE /* Build configuration list for PBXProject "TenmatesUI" */ = {
+		96C730C72D6C3C2F00FEA309 /* Build configuration list for PBXProject "NewUserCreation 2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96112E0C2D62FC6A00BDADFE /* Debug */,
-				96112E0D2D62FC6A00BDADFE /* Release */,
+				96C730D82D6C3C3100FEA309 /* Debug */,
+				96C730D92D6C3C3100FEA309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96112E0E2D62FC6A00BDADFE /* Build configuration list for PBXNativeTarget "TenmatesUI" */ = {
+		96C730DA2D6C3C3100FEA309 /* Build configuration list for PBXNativeTarget "NewUserCreation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96112E0F2D62FC6A00BDADFE /* Debug */,
-				96112E102D62FC6A00BDADFE /* Release */,
+				96C730DB2D6C3C3100FEA309 /* Debug */,
+				96C730DC2D6C3C3100FEA309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 96112DF82D62FC6900BDADFE /* Project object */;
+	rootObject = 96C730C42D6C3C2F00FEA309 /* Project object */;
 }

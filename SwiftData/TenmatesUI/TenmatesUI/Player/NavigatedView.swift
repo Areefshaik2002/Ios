@@ -11,10 +11,11 @@ import Combine
 struct NavigatedView: View {
     @State private var scaleEffect: CGFloat = 0.1
     var ViewModel = EventViewModel()
+    var eventCourts: EventCourt?
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View{
-        TableTennisAnimationView.init()
+        tableTennisAnimationView()
         VStack(alignment: .center, spacing: 20){
             Text("Get ready to rally! Your pickelball event is officially set. Gather your paddles, and let the fun begin")
                 .multilineTextAlignment(.center)
@@ -27,15 +28,15 @@ struct NavigatedView: View {
                         .foregroundColor(.init(red: 0.85, green: 1, blue: 0))
                         .fontWeight(.bold)
                         .font(.system(size: 24))
-                    Text("\(ViewModel.event?.event?.eventCourts?.count ?? 0) courts")
+                    Text("\(eventCourts?.eventCourtScheduleOptions?.count ?? 0) courts")
                         .font(.system(size: 24))
                         .offset(x:20)
                 }
                 HStack{
-                    Images(imageName: "pic1")
-                    Images(imageName: "pic2")
+                    images(imageName: "person.circle")
+                    images(imageName: "person.circle")
                         .offset(x: -20)
-                    Images(imageName: "pic1")
+                    images(imageName: "person.circle")
                         .offset(x: -30)
                     Text("Micheal, Louise + 32 players")
                         .offset(x: -20)
@@ -46,10 +47,10 @@ struct NavigatedView: View {
             .cornerRadius(12)
             
             NavigationLink(destination: ViewSchedule(), label: {
-                GreenButton(buttonLabel: "View Schedule")
+                greenButton(buttonLabel: "View Schedule")
             })
             NavigationLink(destination: ViewEventDetails(), label: {
-                BlackButton(buttonLabel: "View Event Details")
+                blackButton(buttonLabel: "View Event Details")
             })
             .navigationBarBackButtonHidden(true)
             .toolbar {

@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		963637912D683999002440F8 /* pickematesUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pickematesUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96C71C622D6B4C3100FEA309 /* Tenmates.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tenmates.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,6 +42,13 @@
 			isa = PBXGroup;
 			children = (
 				963637912D683999002440F8 /* pickematesUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96C71C652D6B4C3100FEA309 /* Products */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +105,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 963637922D683999002440F8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 96C71C652D6B4C3100FEA309 /* Products */;
+					ProjectRef = 96C71C622D6B4C3100FEA309 /* Tenmates.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				963637902D683999002440F8 /* pickematesUI */,

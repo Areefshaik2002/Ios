@@ -226,10 +226,10 @@ struct EventsInCommon : View{
             .padding(.bottom, 20)
             
             HStack{
-                Images(imageName: "pic1")
-                Images(imageName: "pic2")
+                images(imageName: "pic1")
+                images(imageName: "pic2")
                     .offset(x: -30)
-                Images(imageName: "pic3")
+                images(imageName: "pic3")
                     .offset(x: -50)
                 Text("Cristina, Louise + 32 players")
                     .foregroundColor(.secondary)
