@@ -55,7 +55,6 @@ struct NewUserCreationPlayerView: View {
                                 .tag(1)
                         }
                         .pickerStyle(SegmentedPickerStyle())
-//                        .scaleEffect(1.2)
                         .onAppear(perform: {
                             UISegmentedControl.appearance().selectedSegmentTintColor = appColorUIColor
                             UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black as Any], for: .selected)

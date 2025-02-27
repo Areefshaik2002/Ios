@@ -121,9 +121,9 @@ var saveDraftNavigation : some View{
     }
 }
 
-#Preview {
-    EventView()
-}
+//#Preview {
+//    EventView()
+//}
 
 //struct EventInitialDetailView: View {
 //    let event : Event?

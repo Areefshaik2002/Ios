@@ -11,7 +11,7 @@ import SwiftUI
 struct APICallsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: GHViewModel())
         }
     }
 }
