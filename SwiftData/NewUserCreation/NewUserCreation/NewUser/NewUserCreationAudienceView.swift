@@ -154,7 +154,6 @@ struct NewUserCreationAudienceView: View {
         }) {
             Image(systemName: "questionmark.circle")
                 .foregroundColor(Color(appColor))
-                .frame(width: 32, height: 32)
         }
     }
     
@@ -164,7 +163,6 @@ struct NewUserCreationAudienceView: View {
         }) {
             Image(systemName: "multiply")
                 .foregroundColor(Color(appColor))
-                .frame(width: 32, height: 32)
         }
     }
     

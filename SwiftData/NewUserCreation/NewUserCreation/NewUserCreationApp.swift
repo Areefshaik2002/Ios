@@ -11,7 +11,7 @@ import SwiftUI
 struct NewUserCreationApp: App {
     var body: some Scene {
         WindowGroup {
-            SampleView()
+            NewUserCreationPlayerView()
         }
     }
 }
