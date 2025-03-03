@@ -121,7 +121,7 @@ extension EventReviewUseCase: TargetType {
 //        case .getData:
 //            return [
 //                "Accept": "application/vnd.prasthana.com; version=1",
-////                "Authorization": "Bearer \(authToken)"
+//               "Authorization": "Bearer \(authToken)"
 //            ]
 //        }
 //    }

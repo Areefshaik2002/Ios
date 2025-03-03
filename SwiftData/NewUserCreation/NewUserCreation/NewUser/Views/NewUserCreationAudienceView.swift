@@ -23,16 +23,12 @@ struct NewUserCreationAudienceView: View {
                 .navigationBarBackButtonHidden(false)
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        questionMarkMessageButton
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        closeButton.padding(.trailing, 8)
-                    }
+                    ToolbarItem(placement: .navigationBarTrailing) { questionMarkMessageButton }
+                    ToolbarItem(placement: .navigationBarTrailing) { closeButton.padding(.trailing, 8) }
                 }
-                .padding(.vertical, 16)
-                .padding(.horizontal, 16)
         }
+        .padding(.vertical, 16)
+        .padding(.horizontal,16)
     }
     
     var mainContentView: some View {
@@ -61,7 +57,6 @@ struct NewUserCreationAudienceView: View {
             }
             saveButton
         }
-        .padding(.horizontal,16)
     }
     
     var importFromContactsView: some View {
