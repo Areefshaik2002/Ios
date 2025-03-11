@@ -4,7 +4,7 @@ struct SampleView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
-                NavigationLink(destination: NewUserCreationPlayerView()) {
+                NavigationLink(destination: NewUserCreationPlayerView(viewModel: NewUserCreationViewModel())) {
                     button(text: "New Player")
                 }
                 NavigationLink(destination: NewUserCreationCoachView()) {

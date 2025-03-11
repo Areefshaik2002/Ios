@@ -43,8 +43,7 @@ class LaunchViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)        
         let month = sortedMonths[indexPath.section]
         let event = eventsByMonth[month]?[indexPath.row]
         cell.textLabel?.text = event?.name
@@ -79,7 +78,7 @@ class LaunchViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let hearderView = UIView()
-        hearderView.backgroundColor = .init(red: 0.85, green: 1, blue: 0, alpha: 0.8)
+        hearderView.backgroundColor = .init(red: 193/255, green: 215/255, blue: 46/255, alpha: 1)
         let label = UILabel()
         label.text = sortedMonths[section]
         label.textColor = .black

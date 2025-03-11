@@ -26,7 +26,7 @@ class ScrollViewsViewController: UIViewController {
         super.viewDidLoad()
         
         for _ in 1...noOfRects {
-            let rect = createRectange()
+            let rect = createRectangle()
             stackView.addArrangedSubview(rect)
         }
         
@@ -45,12 +45,12 @@ class ScrollViewsViewController: UIViewController {
         scrollView.contentSize.height = (rectHeight * CGFloat((noOfRects))) + 64
     }
     
-    private func createRectange() -> UIView {
+    private func createRectangle() -> UIView {
         let view = UIView()
         view.heightAnchor.constraint(equalToConstant: 200).isActive = true
         view.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        view.layer.cornerRadius = 14
-        view.backgroundColor = .systemGray
+        view.layer.cornerRadius = 12
+        view.backgroundColor = .blue
         return view
     }
 }

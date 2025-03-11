@@ -12,7 +12,7 @@ class ShapeViewController: UIViewController {
     private var rectangle : UIView = {
         let view = UIView()
         view.backgroundColor = .systemGreen
-        view.layer.cornerRadius = 14
+        view.layer.cornerRadius = 12
         return view
     }()
     

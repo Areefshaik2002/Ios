@@ -23,6 +23,9 @@ struct EventReviewView: View {
                     ToolbarItem(placement: .navigationBarLeading){ backButton }
                 }
         }
+        .task {
+            await viewModel.getEventDetails(eventId: 3926)
+        }
         publishNowNavigation
         saveDraftNavigation
     }
@@ -211,7 +214,8 @@ struct EventReviewView: View {
                     .padding(.trailing, 16)
                 
                 VStack(alignment: .leading) {
-                    Text(eventCourtScheduleOption.startTime ?? "date")
+                    let startingTime = viewModel.dateFormatter(dateString: eventCourtScheduleOption.startTime ?? "Date")
+                        Text("\(startingTime)")
                     let duration = (eventCourtScheduleOption.duration ?? 0) / 3600
                     Text("\(duration)h")
                         .font(.subheadline)

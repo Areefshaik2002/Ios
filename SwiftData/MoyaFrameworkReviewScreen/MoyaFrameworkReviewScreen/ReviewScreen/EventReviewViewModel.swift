@@ -7,104 +7,70 @@
 
 import Foundation
 import Moya
-import SwiftUI
 
 @Observable class EventReviewViewModel {
-     var events: Welcome?
-     var isLoading: Bool = false
-     var errorMessage: String?
-
-    let provider = MoyaProvider<EventReviewUseCase>()
-
-    func fetchVerificationCode(completion: @escaping (Result<String, Error>) -> Void) {
-        provider.request(.getVerificationCode(
-            mobileNumber: 8300004515,
-            countryCode: 91,
-            regionCode: "IN"
-        )) { result in
-            switch result {
-            case .success(let response):
-                do {
-                    let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: Any]
-                    if let code = json?["verification_code"] as? String {
-                        completion(.success(code))
-                    } else {
-                        completion(.failure(URLError(.cannotParseResponse)))
-                    }
-                } catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-
-    func fetchToken(completion: @escaping (Result<String, Error>) -> Void) {
-        fetchVerificationCode { result in
-            switch result {
-            case .success(let verificationCode):
-                self.provider.request(.getToken(
-                    username: "8300004515",
-                    verification_code: verificationCode
-                )) { result in
-                    switch result {
-                    case .success(let response):
-                        do {
-                            let json = try JSONSerialization.jsonObject(with: response.data, options: []) as? [String: Any]
-                            if let token = json?["access_token"] as? String {
-                                completion(.success(token))
-                            } else {
-                                completion(.failure(URLError(.cannotParseResponse)))
-                            }
-                        } catch {
-                            completion(.failure(error))
-                        }
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-
-    func getData(eventId: Int, accessToken: String) {
-        self.isLoading = true
-        provider.request(.getData(eventId: eventId)) { result in
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
-            switch result {
-            case .success(let response):
-                if response.statusCode == 200 {
-                    do {
-                        let decodedResponse = try JSONDecoder().decode(Welcome.self, from: response.data)
-                        DispatchQueue.main.async {
-                            self.events = decodedResponse
-                        }
-                    } catch {
-                        DispatchQueue.main.async {
-                            self.errorMessage = "Error decoding response: \(error)"
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.errorMessage = "Error: Status Code \(response.statusCode)"
-                    }
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.errorMessage = "Request failed with error: \(error.localizedDescription)"
-                }
-            }
-        }
-    }
-}
+    private let provider = MoyaProvider<eventsAPI>()
+    var events: Welcome?
     
+    func getEventDetails(eventId:Int) async {
+        do {
+            let data = try await getDetails(eventId: eventId)
+            events = data
+            print("data fetched")
+        } catch {
+            print("Error fetching user details: \(error)")
+        }
+    }
+    
+    private func getDetails(eventId:Int) async throws -> Welcome?  {
+        let token = try await fetchToken()
+        let response = try await provider.request(.getDetails(EventId: eventId, token: token))
+        
+        guard response.statusCode == 200 else { throw URLError(.badServerResponse) }
+            do {
+                let decoder = JSONDecoder()
+                let mainUser = try decoder.decode(Welcome.self, from: response.data)
+                return mainUser
+            } catch {
+                print("Error decoding response: \(error)")
+            }
+        return nil
+    }
+    
+    private func fetchVerificationCode() async throws -> String {
+        let response = try await provider.request(.verificationCode)
 
+        let json = try JSONSerialization.jsonObject(with: response.data) as? [String: Any]
+        guard let code = json?["verification_code"] as? String else {
+            throw URLError(.cannotParseResponse)
+        }
+        return code
+    }
 
+    private func fetchToken() async throws -> String {
+        let verificationCode = try await fetchVerificationCode()
 
+        let response = try await provider.request(.token(
+            verificationCode: verificationCode
+        ))
 
-
+        let json = try JSONSerialization.jsonObject(with: response.data) as? [String: Any]
+        guard let token = json?["access_token"] as? String else {
+            throw URLError(.cannotParseResponse)
+        }
+        return token
+    }
+    
+    func dateFormatter(dateString: String, outputTimeZone: TimeZone = TimeZone(abbreviation: "UTC")!) -> String {
+        let isoFormatter = ISO8601DateFormatter()
+        isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        guard let date = isoFormatter.date(from: dateString) else {
+          print("Failed to parse date from string.")
+          return ""
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, d MMM hh:mm a"
+        formatter.timeZone = outputTimeZone
+        return formatter.string(from: date)
+      }
+}

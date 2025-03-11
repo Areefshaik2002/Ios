@@ -11,6 +11,8 @@ var appColorUIColor = UIColor.init(red: 193/255, green: 215/255, blue: 46/255,al
 
 struct NewUserCreationPlayerView: View {
     
+    var viewModel: NewUserCreationViewModel
+    
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var playerMobileNumber: String = ""
@@ -20,6 +22,10 @@ struct NewUserCreationPlayerView: View {
     @State var togglePlayerVariable: Bool = false
     @State var toggleParentVariable: Bool = false
     @State var toggle: Int = 0
+    @State var role = "ur_player"
+    @State var statusMessage = ""
+    @State var regionCode = "IN"
+    @State var countryId = 80
     
     var body: some View {
         NavigationStack {
@@ -35,7 +41,7 @@ struct NewUserCreationPlayerView: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         closeButton.padding(.trailing, 8)
                     }
-                }
+            }
         }
     }
     
@@ -95,6 +101,15 @@ struct NewUserCreationPlayerView: View {
             }
         }
     }
+    
+//    /validations/verify_mobile_number
+//case .verifyMobileNumber(let clientId, let clientSecret, let regionCode,
+//                      let mobileNumber):
+//    return .requestParameters(parameters: ["client_id": clientId,
+//                                           "client_secret": clientSecret,
+//                                           "mobile_number": mobileNumber,
+//                                           "region_code": regionCode],
+//                              encoding: JSONEncoding.default)
     
     var parentManagedView: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -261,7 +276,13 @@ struct NewUserCreationPlayerView: View {
     
     var saveButton: some View {
         Button(action: {
-            print("Save button tapped")
+            Task{
+                do {
+                    try await viewModel.createUser(mobileNumber: playerMobileNumber, firstName: firstName, lastName: lastName, /*roles: [role], */countryId: countryId, regionCode: regionCode)
+                } catch {
+                    print("Error creating user: \(error)")
+                }
+            }
         }) {
             Text("Save")
                 .frame(width: 358, height: 48)
@@ -287,7 +308,7 @@ struct NewUserCreationPlayerView: View {
     
     var closeButton: some View {
         Button(action: {
-            print("Close button tapped")
+            print("close button tapped")
         }) {
             Image(systemName: "multiply")
                 .foregroundColor(Color(appColor))
@@ -305,7 +326,25 @@ struct NewUserCreationPlayerView: View {
             )
             .cornerRadius(8)
     }
-}
+    
+//    private func createUser() async {
+//        statusMessage = "fetching verification code..."
+//        do {
+//            try await viewModel.createUser()
+////                mobileNumber: playerMobileNumber,
+////                firstName: firstName,
+////                lastName: lastName,
+////                roles: [role],
+////                countryId: countryId,
+////                regionCode: regionCode
+////            )
+//            statusMessage = "User created successfully!"
+//                    } catch {
+//                        statusMessage = "Error: \(error.localizedDescription)"
+//                    }
+//        }
+    }
+//}
 
 
 //    func toggleButton(title: String, isSelected: Bool, action: @escaping() -> Void) -> some View {

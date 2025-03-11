@@ -36,7 +36,7 @@ class ButtonViewController: UIViewController {
         view.addSubview(clickButton)
         clickButton.widthAnchor.constraint(equalToConstant: 250).isActive = true
         clickButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        clickButton.layer.cornerRadius = 15
+        clickButton.layer.cornerRadius = 12
         clickButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         clickButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
