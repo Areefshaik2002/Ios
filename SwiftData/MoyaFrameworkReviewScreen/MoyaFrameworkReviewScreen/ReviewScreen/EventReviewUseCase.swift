@@ -15,6 +15,7 @@ enum eventsAPI {
 }
 
 extension eventsAPI: TargetType {
+    
     var baseURL: URL {
         URL(string: "https://api-stage.tenmates.app")!
     }

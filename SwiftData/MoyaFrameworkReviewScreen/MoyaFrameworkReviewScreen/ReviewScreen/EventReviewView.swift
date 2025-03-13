@@ -330,3 +330,7 @@ struct EventReviewView: View {
     
     
 }
+
+#Preview {
+    EventReviewView(viewModel: EventReviewViewModel())
+}
