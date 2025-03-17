@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct ToDo: Codable, Identifiable {
+    var id: UUID = UUID()
+    var title: String
+    var endDate: Date
+    var endTime: Date
+    var description: String
+    var isCompleted: Bool = false
+}

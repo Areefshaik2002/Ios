@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Event: Codable, Identifiable{
+    var id = UUID()
+    var title: String
+    var date: Date
+    var description: String
+}

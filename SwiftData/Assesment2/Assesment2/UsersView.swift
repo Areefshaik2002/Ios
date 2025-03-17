@@ -36,15 +36,17 @@ struct UsersView: View {
     }
     
     var submitButton: some View {
-        Button(action: checkUserCredentials) {
-            Text("Submit")
-                .font(.system(size: 16, weight: .bold))
-                .foregroundColor(.white)
-                .frame(width: 200, height: 40)
-                .background(.green)
-                .cornerRadius(12)
-                .padding(.leading, 56)
+        HStack{
+            Button(action: checkUserCredentials) {
+                Text("Submit")
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundColor(.white)
+                    .frame(width: 200, height: 40)
+                    .background(.green)
+                    .cornerRadius(12)
+            }
         }
+        .frame(maxWidth: .infinity)
     }
     
     func checkUserCredentials() {
@@ -52,4 +54,7 @@ struct UsersView: View {
             navigateToComments = true
         }
     }
+}
+#Preview{
+    UsersView(viewModel: CommentViewModel())
 }

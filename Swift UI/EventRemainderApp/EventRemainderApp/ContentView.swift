@@ -73,12 +73,12 @@ struct AddEventView: View {
             }
             .navigationTitle("New Event")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {
                         dismiss()
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
                         let newEvent = EventModel(title: title, date: date, description: description)
                         viewModel.addEvent(newEvent)

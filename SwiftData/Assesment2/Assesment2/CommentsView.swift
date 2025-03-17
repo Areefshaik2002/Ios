@@ -48,6 +48,7 @@ struct CommentsView: View {
 #Preview {
     CommentsView(viewModel: CommentViewModel())
 }
+
 //
 //struct CommentRowView: View {
 //    var comment: CommentModelElement
