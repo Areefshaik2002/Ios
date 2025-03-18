@@ -90,11 +90,11 @@ struct AddExpenseSheet: View {
             .navigationTitle("New Expense")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") { dismiss() }
                 }
                 
-                ToolbarItemGroup(placement: .topBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     Button("Save") {
                         // Save code goes here
                         let expense = ExpenseModel(name: name, date: date, price: price)
@@ -109,7 +109,7 @@ struct AddExpenseSheet: View {
 }
 
 struct UpdateExpenseSheet: View {
-//    @Environment(\.modelContext) var context
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) private var dismiss
     @Bindable var expense : ExpenseModel
     
