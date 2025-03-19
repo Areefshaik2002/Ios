@@ -13,10 +13,10 @@ import MapKit
 struct SearchableMapView: View {
     @State private var searchText: String = ""
     @State private var position: MapCameraPosition = .automatic
-
+    
     var body: some View {
         VStack {
-            TextField("Search for a place...", text: $searchText, onCommit: {
+            TextField("Search for a place", text: $searchText, onCommit: {
                 searchLocation()
             })
             .textFieldStyle(RoundedBorderTextFieldStyle())

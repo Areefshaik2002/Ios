@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		9645F2D32D8824300039A596 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D0EB022D8A7BF2008AF5D1 /* PushNotificationTest2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotificationTest2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		9645F2D52D8824300039A596 /* Maps */ = {
+		96D0EB042D8A7BF2008AF5D1 /* PushNotificationTest2 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Maps;
+			path = PushNotificationTest2;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9645F2D02D8824300039A596 /* Frameworks */ = {
+		96D0EAFF2D8A7BF2008AF5D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9645F2CA2D8824300039A596 = {
+		96D0EAF92D8A7BF2008AF5D1 = {
 			isa = PBXGroup;
 			children = (
-				9645F2D52D8824300039A596 /* Maps */,
-				9645F2D42D8824300039A596 /* Products */,
+				96D0EB042D8A7BF2008AF5D1 /* PushNotificationTest2 */,
+				96D0EB032D8A7BF2008AF5D1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9645F2D42D8824300039A596 /* Products */ = {
+		96D0EB032D8A7BF2008AF5D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9645F2D32D8824300039A596 /* Maps.app */,
+				96D0EB022D8A7BF2008AF5D1 /* PushNotificationTest2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9645F2D22D8824300039A596 /* Maps */ = {
+		96D0EB012D8A7BF2008AF5D1 /* PushNotificationTest2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9645F2E12D8824320039A596 /* Build configuration list for PBXNativeTarget "Maps" */;
+			buildConfigurationList = 96D0EB102D8A7BF3008AF5D1 /* Build configuration list for PBXNativeTarget "PushNotificationTest2" */;
 			buildPhases = (
-				9645F2CF2D8824300039A596 /* Sources */,
-				9645F2D02D8824300039A596 /* Frameworks */,
-				9645F2D12D8824300039A596 /* Resources */,
+				96D0EAFE2D8A7BF2008AF5D1 /* Sources */,
+				96D0EAFF2D8A7BF2008AF5D1 /* Frameworks */,
+				96D0EB002D8A7BF2008AF5D1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				9645F2D52D8824300039A596 /* Maps */,
+				96D0EB042D8A7BF2008AF5D1 /* PushNotificationTest2 */,
 			);
-			name = Maps;
+			name = PushNotificationTest2;
 			packageProductDependencies = (
 			);
-			productName = Maps;
-			productReference = 9645F2D32D8824300039A596 /* Maps.app */;
+			productName = PushNotificationTest2;
+			productReference = 96D0EB022D8A7BF2008AF5D1 /* PushNotificationTest2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		9645F2CB2D8824300039A596 /* Project object */ = {
+		96D0EAFA2D8A7BF2008AF5D1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					9645F2D22D8824300039A596 = {
+					96D0EB012D8A7BF2008AF5D1 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
-			buildConfigurationList = 9645F2CE2D8824300039A596 /* Build configuration list for PBXProject "Maps" */;
+			buildConfigurationList = 96D0EAFD2D8A7BF2008AF5D1 /* Build configuration list for PBXProject "PushNotificationTest2" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 9645F2CA2D8824300039A596;
+			mainGroup = 96D0EAF92D8A7BF2008AF5D1;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 9645F2D42D8824300039A596 /* Products */;
+			productRefGroup = 96D0EB032D8A7BF2008AF5D1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9645F2D22D8824300039A596 /* Maps */,
+				96D0EB012D8A7BF2008AF5D1 /* PushNotificationTest2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9645F2D12D8824300039A596 /* Resources */ = {
+		96D0EB002D8A7BF2008AF5D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9645F2CF2D8824300039A596 /* Sources */ = {
+		96D0EAFE2D8A7BF2008AF5D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9645F2DF2D8824320039A596 /* Debug */ = {
+		96D0EB0E2D8A7BF3008AF5D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,7 +188,7 @@
 			};
 			name = Debug;
 		};
-		9645F2E02D8824320039A596 /* Release */ = {
+		96D0EB0F2D8A7BF3008AF5D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,17 +244,16 @@
 			};
 			name = Release;
 		};
-		9645F2E22D8824320039A596 /* Debug */ = {
+		96D0EB112D8A7BF3008AF5D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PushNotificationTest2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need location to show iot opn the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -265,7 +264,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.Maps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.PushNotificationTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -273,17 +272,16 @@
 			};
 			name = Debug;
 		};
-		9645F2E32D8824320039A596 /* Release */ = {
+		96D0EB122D8A7BF3008AF5D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Maps/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PushNotificationTest2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need location to show iot opn the map";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -294,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.Maps;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.PushNotificationTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -305,25 +303,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9645F2CE2D8824300039A596 /* Build configuration list for PBXProject "Maps" */ = {
+		96D0EAFD2D8A7BF2008AF5D1 /* Build configuration list for PBXProject "PushNotificationTest2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9645F2DF2D8824320039A596 /* Debug */,
-				9645F2E02D8824320039A596 /* Release */,
+				96D0EB0E2D8A7BF3008AF5D1 /* Debug */,
+				96D0EB0F2D8A7BF3008AF5D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9645F2E12D8824320039A596 /* Build configuration list for PBXNativeTarget "Maps" */ = {
+		96D0EB102D8A7BF3008AF5D1 /* Build configuration list for PBXNativeTarget "PushNotificationTest2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9645F2E22D8824320039A596 /* Debug */,
-				9645F2E32D8824320039A596 /* Release */,
+				96D0EB112D8A7BF3008AF5D1 /* Debug */,
+				96D0EB122D8A7BF3008AF5D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 9645F2CB2D8824300039A596 /* Project object */;
+	rootObject = 96D0EAFA2D8A7BF2008AF5D1 /* Project object */;
 }
