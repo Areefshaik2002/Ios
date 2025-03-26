@@ -1,0 +1,33 @@
+{
+  "originHash" : "32779870fad3cda6eb4eb0a63927ee13fe08f8e70dfd227c58f95781a0c5395b",
+  "pins" : [
+    {
+      "identity" : "sendbird-chat-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sendbird/sendbird-chat-sdk-ios",
+      "state" : {
+        "revision" : "2a6630285e5cd16b183d665eabd4c86fe5256d9a",
+        "version" : "4.25.2"
+      }
+    },
+    {
+      "identity" : "sendbird-swiftui-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sendbird/sendbird-swiftui-ios.git",
+      "state" : {
+        "revision" : "39c4652943f43c6b231f176c685318e8c88a6ac0",
+        "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "sendbird-uikit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sendbird/sendbird-uikit-ios.git",
+      "state" : {
+        "revision" : "6b4c14f2315213e3178daacbb2f9123820bb17f9",
+        "version" : "3.30.1"
+      }
+    }
+  ],
+  "version" : 3
+}

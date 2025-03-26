@@ -12,7 +12,6 @@ import SendbirdUIKit
 
 struct ChatListView: View {
     @StateObject var provider = GroupChannelListViewProvider()
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GroupChannelListView(
@@ -102,56 +101,5 @@ struct ChatListView: View {
         formatter.dateFormat = "hh:mm a"
         return formatter.string(from: date)
     }
-    
-    
-
-    private func handleSendbirdUiMode() {
-        var uiMode = UITraitCollection.current.userInterfaceStyle
-        
-        if uiMode == .dark{
-            SBUTheme.set(colorScheme: SBUTheme.dark)
-        }else{
-            SBUTheme.set(colorScheme: SBUTheme.light)
-        }
-    }
-
-
 }
 
-
-
-
-//headerItem: {
-//    .init()
-//    .leftView{ viewConfig in
-//        Text("Chats")
-//            .font(.largeTitle)
-//            .fontWeight(.bold)
-//            .foregroundColor(Color.black)
-//
-//    }
-//    .titleView{ viewConfig in
-//        Text("")
-//    }
-//    .rightView { viewConfig in
-//        HStack(spacing: 8){
-//            Button(action: {
-//                print("Plus button tapped!")
-//            }) {
-//                Image(systemName: "questionmark.circle")
-//                    .resizable()
-//                    .frame(width: 24, height: 24)
-//                    .foregroundColor(.init(red: 193/255, green: 215/255, blue: 46/255))
-//            }
-//
-//            Button(action: {
-//                print("Plus button tapped!")
-//            }) {
-//                Image(systemName: "plus")
-//                    .resizable()
-//                    .frame(width: 24, height: 24)
-//                    .foregroundColor(.init(red: 193/255, green: 215/255, blue: 46/255))
-//            }
-//        }
-//    }
-//}

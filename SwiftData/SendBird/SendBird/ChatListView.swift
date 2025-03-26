@@ -20,17 +20,17 @@ struct ChatListView: View {
             headerItem: {
                 .init()
                 .leftView { _ in
-                    //                    Text("Chats")
-                    //                        .font(.largeTitle)
-                    //                        .fontWeight(.bold)
-                    //                        .foregroundColor(.primary)
-                }
-                .titleView { _ in
-                    //                    EmptyView()
                     Text("Chats")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(.primary)
+                }
+                .titleView { _ in
+                    EmptyView()
+                    //                    Text("Chats")
+                    //                        .font(.largeTitle)
+                    //                        .fontWeight(.bold)
+                    //                        .foregroundColor(.primary)
                 }
                 .rightView { _ in
                     Button(action: {
@@ -56,14 +56,13 @@ struct ChatListView: View {
                                 AsyncImage(url: URL(string: url)) { image in
                                     image.resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 20, height: 20)
                                         .clipShape(Circle())
                                 } placeholder: {
                                     Image(systemName: "person")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
-                                        .clipShape(Circle())
+                                        .frame(width: 20, height: 20)
                                         .foregroundColor(.appPrimary)
                                 }
                             }
@@ -77,14 +76,13 @@ struct ChatListView: View {
                                 AsyncImage(url: URL(string: url)) { image in
                                     image.resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 25, height: 25)
                                         .clipShape(Circle())
                                 } placeholder: {
                                     Image(systemName: "person.2")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
-                                        .clipShape(Circle())
+                                        .frame(width: 20, height: 20)
                                         .foregroundColor(.appPrimary)
                                 }
                             }
@@ -98,14 +96,13 @@ struct ChatListView: View {
                                 AsyncImage(url: URL(string: url)) { image in
                                     image.resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 25, height: 25)
                                         .clipShape(Circle())
                                 } placeholder: {
                                     Image(systemName: "music.microphone.circle")
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 30, height: 30)
-                                        .clipShape(Circle())
+                                        .frame(width: 20, height: 20)
                                         .foregroundColor(.appPrimary)
                                 }
                             }
@@ -118,18 +115,39 @@ struct ChatListView: View {
                                     .foregroundColor(.primary)
                                 
                                 Spacer()
-                                
-                                if let lastMessage = viewConfig.channel.lastMessage {
-                                    Text(formatTimestamp(lastMessage.createdAt))
-                                        .font(.caption)
-                                        .foregroundColor(Color(uiColor: .secondaryLabel))
+                                    if let lastMessage = viewConfig.channel.lastMessage {
+                                        Text(formatTimestamp(lastMessage.createdAt))
+                                            .font(.caption)
+                                            .foregroundColor(Color(uiColor: .secondaryLabel))
+                                    }
                                 }
-                            }
-                            HStack{
+                            HStack(spacing: 0){
+                                if let lastMessage = viewConfig.channel.lastMessage {
+                                    let readStatus = viewConfig.channel.getReadStatus(includeAllMembers: true)
+
+                                    if let currentUser = SendbirdChat.getCurrentUser() {
+                                        let allMembersRead = viewConfig.channel.members
+                                            .filter { $0.userId != currentUser.userId }
+                                            .allSatisfy { member in
+                                                if let memberStatus = readStatus[member.userId] {
+                                                    if let lastSeenAt = memberStatus["last_seen_at"] as? Int64 ??
+                                                                       memberStatus["ts"] as? Int64 {
+                                                        return lastMessage.createdAt <= lastSeenAt
+                                                    }
+                                                }
+                                                return false
+                                            }
+
+                                        Image(systemName: allMembersRead ? "checkmark.circle.fill" : "checkmark.circle.fill")
+                                            .font(.caption)
+                                            .foregroundColor(allMembersRead ? .appPrimary : .gray)
+                                    }
+                                }
+
                                 if viewConfig.channel.isTyping(){
                                     Text("Typing...")
                                         .font(.subheadline)
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(.appPrimary)
                                 }else {
                                     Text(viewConfig.channel.lastMessage?.message ?? "No messages yet")
                                         .font(.subheadline)
@@ -152,7 +170,7 @@ struct ChatListView: View {
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(.appPrimary.opacity(0.5), lineWidth: 1)
+                            .stroke(.appPrimary.opacity(0.3), lineWidth: 1)
                             .background(
                                 Color(uiColor: .systemBackground)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -163,7 +181,6 @@ struct ChatListView: View {
                 }
             })
     }
-    
     
     private func formatTimestamp(_ timestamp: Int64) -> String {
         let date = Date(timeIntervalSince1970: TimeInterval(timestamp) / 1000)
