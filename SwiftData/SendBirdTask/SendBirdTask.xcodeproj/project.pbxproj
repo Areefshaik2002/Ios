@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		960D96A22D918A7100C8A055 /* SendbirdChatSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 960D96A12D918A7100C8A055 /* SendbirdChatSDK */; };
+		960D96A52D918A8200C8A055 /* SendbirdSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 960D96A42D918A8200C8A055 /* SendbirdSwiftUI */; };
+		960D96A82D918B4B00C8A055 /* SendbirdUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 960D96A72D918B4B00C8A055 /* SendbirdUIKit */; };
+		960D96AA2D918B4B00C8A055 /* SendbirdUIMessageTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 960D96A92D918B4B00C8A055 /* SendbirdUIMessageTemplate */; };
+		960D96AD2D918B5B00C8A055 /* SendBirdSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 960D96AC2D918B5B00C8A055 /* SendBirdSDK */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		960D968B2D91899100C8A055 /* SendBirdTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendBirdTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		960D968D2D91899100C8A055 /* SendBirdTask */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = SendBirdTask;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		960D96882D91899100C8A055 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				960D96A22D918A7100C8A055 /* SendbirdChatSDK in Frameworks */,
+				960D96A82D918B4B00C8A055 /* SendbirdUIKit in Frameworks */,
+				960D96A52D918A8200C8A055 /* SendbirdSwiftUI in Frameworks */,
+				960D96AA2D918B4B00C8A055 /* SendbirdUIMessageTemplate in Frameworks */,
+				960D96AD2D918B5B00C8A055 /* SendBirdSDK in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		960D96822D91899100C8A055 = {
+			isa = PBXGroup;
+			children = (
+				960D968D2D91899100C8A055 /* SendBirdTask */,
+				960D968C2D91899100C8A055 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		960D968C2D91899100C8A055 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				960D968B2D91899100C8A055 /* SendBirdTask.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		960D968A2D91899100C8A055 /* SendBirdTask */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 960D96992D91899200C8A055 /* Build configuration list for PBXNativeTarget "SendBirdTask" */;
+			buildPhases = (
+				960D96872D91899100C8A055 /* Sources */,
+				960D96882D91899100C8A055 /* Frameworks */,
+				960D96892D91899100C8A055 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				960D968D2D91899100C8A055 /* SendBirdTask */,
+			);
+			name = SendBirdTask;
+			packageProductDependencies = (
+				960D96A12D918A7100C8A055 /* SendbirdChatSDK */,
+				960D96A42D918A8200C8A055 /* SendbirdSwiftUI */,
+				960D96A72D918B4B00C8A055 /* SendbirdUIKit */,
+				960D96A92D918B4B00C8A055 /* SendbirdUIMessageTemplate */,
+				960D96AC2D918B5B00C8A055 /* SendBirdSDK */,
+			);
+			productName = SendBirdTask;
+			productReference = 960D968B2D91899100C8A055 /* SendBirdTask.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		960D96832D91899100C8A055 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					960D968A2D91899100C8A055 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 960D96862D91899100C8A055 /* Build configuration list for PBXProject "SendBirdTask" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 960D96822D91899100C8A055;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				960D96A02D918A7100C8A055 /* XCRemoteSwiftPackageReference "sendbird-chat-sdk-ios" */,
+				960D96A32D918A8200C8A055 /* XCRemoteSwiftPackageReference "sendbird-swiftui-ios" */,
+				960D96A62D918B4B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios" */,
+				960D96AB2D918B5B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-ios-framework" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 960D968C2D91899100C8A055 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				960D968A2D91899100C8A055 /* SendBirdTask */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		960D96892D91899100C8A055 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		960D96872D91899100C8A055 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		960D96972D91899200C8A055 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		960D96982D91899200C8A055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		960D969A2D91899200C8A055 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SendBirdTask/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.SendBirdTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		960D969B2D91899200C8A055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SendBirdTask/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Areefshaik.SendBirdTask;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		960D96862D91899100C8A055 /* Build configuration list for PBXProject "SendBirdTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				960D96972D91899200C8A055 /* Debug */,
+				960D96982D91899200C8A055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		960D96992D91899200C8A055 /* Build configuration list for PBXNativeTarget "SendBirdTask" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				960D969A2D91899200C8A055 /* Debug */,
+				960D969B2D91899200C8A055 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		960D96A02D918A7100C8A055 /* XCRemoteSwiftPackageReference "sendbird-chat-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-chat-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.25.2;
+			};
+		};
+		960D96A32D918A8200C8A055 /* XCRemoteSwiftPackageReference "sendbird-swiftui-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-swiftui-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		960D96A62D918B4B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-uikit-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.30.1;
+			};
+		};
+		960D96AB2D918B5B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-ios-framework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sendbird/sendbird-ios-framework";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		960D96A12D918A7100C8A055 /* SendbirdChatSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960D96A02D918A7100C8A055 /* XCRemoteSwiftPackageReference "sendbird-chat-sdk-ios" */;
+			productName = SendbirdChatSDK;
+		};
+		960D96A42D918A8200C8A055 /* SendbirdSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960D96A32D918A8200C8A055 /* XCRemoteSwiftPackageReference "sendbird-swiftui-ios" */;
+			productName = SendbirdSwiftUI;
+		};
+		960D96A72D918B4B00C8A055 /* SendbirdUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960D96A62D918B4B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios" */;
+			productName = SendbirdUIKit;
+		};
+		960D96A92D918B4B00C8A055 /* SendbirdUIMessageTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960D96A62D918B4B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-uikit-ios" */;
+			productName = SendbirdUIMessageTemplate;
+		};
+		960D96AC2D918B5B00C8A055 /* SendBirdSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 960D96AB2D918B5B00C8A055 /* XCRemoteSwiftPackageReference "sendbird-ios-framework" */;
+			productName = SendBirdSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 960D96832D91899100C8A055 /* Project object */;
+}
