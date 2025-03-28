@@ -10,7 +10,6 @@ import SendbirdSwiftUI
 
 @main
 struct SendBirdApp: App {
-    
     @Environment(\.colorScheme) var colorScheme
 
     init() {
@@ -30,7 +29,7 @@ struct SendBirdApp: App {
 
 private extension SendBirdApp {
     func setupSendbird() {
-        let APP_ID = "3DBF8F23-FDD5-4300-A00D-0A8701FA6CA5" 
+        let APP_ID = "3DBF8F23-FDD5-4300-A00D-0A8701FA6CA5"
 
         SendbirdUI.initialize(applicationId: APP_ID) { params in
             // Customize initialization if needed
@@ -40,22 +39,26 @@ private extension SendBirdApp {
             // Handle DB migration if needed
         } completionHandler: { error in
             // Hide loading indicator
+            if let error = error {
+                print("Sendbird Initialization Error: \(error.localizedDescription)")
+            }
         }
     }
 
     func setupCurrentUser() {
-        SBUGlobals.currentUser = SBUUser(userId: "Areefshaik2002")
-        SBUGlobals.accessToken = "42756eca82f09e85bd4e78bab507be3eb6f3bf2e"
+        let userId = "Areefshaik2002"
+        let accessToken = "5357afa07c1e4e7d2e48c5f21c5e24a42e6ea16e"
+        SBUGlobals.currentUser = SBUUser(userId: userId)
+        SBUGlobals.accessToken = accessToken
     }
 
     func handleSendbirdUiMode() {
         let theme: SBUTheme = (UITraitCollection.current.userInterfaceStyle == .dark) ? .dark : .light
-        SBUTheme.componentTheme.barItemTintColor = .green
+        SBUTheme.componentTheme.barItemTintColor = .appPrimary
         SBUTheme.set(theme: theme)
 
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name("SBUThemeDidChange"), object: nil)
         }
     }
-
 }

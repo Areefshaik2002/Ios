@@ -1,18 +1,18 @@
 //
-//  CreateChannelView.swift
-//  SendBird
+//  ChatDetailView.swift
+//  Sendbirdpractice
 //
-//  Created by Shaik Areef on 20/03/25.
+//  Created by Shaik Areef on 27/03/25.
 //
 
 import SwiftUI
 
-struct CreateChannelView: View {
+struct ChatDetailView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    CreateChannelView()
+    ChatDetailView()
 }
