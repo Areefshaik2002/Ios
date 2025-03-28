@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  SendBird
-//
-//  Created by Shaik Areef on 19/03/25.
-//
 import UIKit
 import SwiftUI
 import SendbirdSwiftUI
@@ -11,48 +5,126 @@ import SendbirdChatSDK
 import SendbirdUIKit
 
 struct ChatListView: View {
-    @StateObject var provider = GroupChannelListViewProvider()
+    let channelURL: String
+    @StateObject var groupChannelListProvider = GroupChannelListViewProvider()
+    @StateObject var groupChannelProvider : GroupChannelViewProvider
+    @Environment(\.dismiss) var dismiss
+    var channel: GroupChannel? { groupChannelProvider.channel }
+    
+    init(channelURL: String) {
+        self.channelURL = channelURL
+        _groupChannelProvider = StateObject(wrappedValue: GroupChannelViewProvider(channelURL: channelURL))
+    }
     var body: some View {
-        mainContent        
+        mainContent
     }
     
     var mainContent: some View {
-            GroupChannelListView(
-                provider: provider,
+        GroupChannelListView(
+            provider: groupChannelListProvider,
+            headerItem: {
+                .init()
+                .leftView { _ in
+                    viewTitle
+                }
+                .titleView { _ in
+                    EmptyView()
+                }
+                .rightView { _ in
+                    //                        createChannelButton
+                    EmptyView()
+                }
+            },
+            listItem: {
+                .init()
+                .rowView { viewConfig in
+                    HStack(spacing: 8) {
+                        ProfileImageView(channel: viewConfig.channel)
+                        ChatMessageRowView(channel: viewConfig.channel)
+                    }
+                    .frame(width: 358)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(.appPrimary.opacity(0.3), lineWidth: 1)
+                            .background(
+                                Color(uiColor: .systemBackground)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
+                            )
+                    )
+                    .padding(.vertical, 8)
+                }
+            })
+        .groupChannelView{channelURL,startingPoint,messageListParams in
+            GroupChannelView(
+                provider: GroupChannelViewProvider(channelURL: channelURL),
                 headerItem: {
                     .init()
-                    .leftView { _ in
-                        viewTitle
+                    .leftView{ _ in
+                        Button(action: {
+                            dismiss()
+                        }){
+                            Image(systemName: "chevron.left")
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.appPrimary)
+                        }
+                    }
+                    .coverImage{ _ in
+                        Image(systemName: "person.circle")
+                            .resizable()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.appPrimary)
                     }
                     .titleView { _ in
-                        EmptyView()
+                        HStack {
+                            if let url = channel?.coverURL {
+                                AsyncImage(url: URL(string: url)) { image in
+                                    image.resizable()
+                                } placeholder: {
+                                    Image(systemName: "person.circle.fill").resizable()
+                                }
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                            }
+                            
+                            VStack(alignment: .leading) {
+                                Text(channel?.name ?? "Unknown")
+                                    .font(.headline)
+                            }
+                        }
                     }
-                    .rightView { _ in
-                        createChannelButton
+                    .rightView{_ in
+                        Button(action: {
+                            groupChannelProvider.showChannelSettings()
+                        }){
+                            Image(systemName: "chevron.left")
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.appPrimary)
+                        }
                     }
                 },
                 listItem: {
                     .init()
-                    .rowView { viewConfig in
-                        HStack(spacing: 8) {
-                            ProfileImageView(channel: viewConfig.channel)
-//                            NavigationLink(destination: ChatDetailView(channelURL: viewConfig.channel)){
-                                ChatMessageRowView(channel: viewConfig.channel)
-//                            }
-                        }
-                        .frame(width: 358)
-                        .padding()
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(.appPrimary.opacity(0.3), lineWidth: 1)
-                                .background(
-                                    Color(uiColor: .systemBackground)
-                                        .clipShape(RoundedRectangle(cornerRadius: 12))
-                                )
-                        )
-                        .padding(.vertical, 8)
+                    .userMessageView{ viewConfig in
+                        MessageBubbleView(message: viewConfig.message)
                     }
-                })
+                },
+                inputItem: {
+                    .init()
+                    .addButton{ viewConfig in
+                        Button(action: {
+                            
+                        }){
+                            Image(systemName: "plus.app")
+                                .resizable()
+                                .foregroundColor(.appPrimary)
+                                .frame(width: 25, height: 25)
+                        }
+                    }
+                }
+            )
+            
+        }
     }
     
     var viewTitle: some View{
@@ -64,7 +136,7 @@ struct ChatListView: View {
     
     var createChannelButton: some View{
         Button(action: {
-            provider.showCreateChannel()
+            groupChannelListProvider.showCreateChannel()
         }) {
             Image(systemName: "plus")
                 .resizable()
@@ -78,19 +150,19 @@ struct ProfileImageView: View{
     var channel: GroupChannel
     var body: some View{
         if channel.members.count == 2, let url = channel.coverURL {
-                asyncImage(url: url, imagePlaceholderName: "person")
-            }else if channel.members.count == 3, let url = channel.coverURL {
-                asyncImage(url: url, imagePlaceholderName: "person.2")
-            }else if channel.members.count > 3, let url = channel.coverURL {
-                asyncImage(url: url, imagePlaceholderName: "music.microphone.circle")
-            }
+            asyncImage(url: url, imagePlaceholderName: "person")
+        }else if channel.members.count == 3, let url = channel.coverURL {
+            asyncImage(url: url, imagePlaceholderName: "person.2")
+        }else if channel.members.count > 3, let url = channel.coverURL {
+            asyncImage(url: url, imagePlaceholderName: "music.microphone.circle")
+        }
     }
     func asyncImage(url:String, imagePlaceholderName: String) -> some View {
         ZStack {
             Circle()
                 .fill(.appPrimary.opacity(0.2))
                 .frame(width: 50, height: 50)
-
+            
             AsyncImage(url: URL(string: url)) { image in
                 image.resizable()
                     .scaledToFill()
@@ -192,5 +264,32 @@ struct ChatMessageRowView: View{
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm a"
         return formatter.string(from: date)
+    }
+}
+
+struct MessageBubbleView: View {
+    let message: BaseMessage
+    let currentUserId: String = SendbirdChat.getCurrentUser()?.userId ?? ""
+    
+    var isCurrentUser: Bool {
+        return message.sender?.userId == currentUserId
+    }
+    
+    var body: some View {
+        HStack {
+            if isCurrentUser { Spacer() }
+            
+            Text(message.message)
+                .padding()
+                .background(isCurrentUser ? .appPrimary : Color.gray.opacity(0.1))
+                .cornerRadius(12)
+                .foregroundColor(isCurrentUser ? .primary : .primary)
+                .frame(maxWidth: 250, alignment: isCurrentUser ? .trailing : .leading)
+            
+            
+            if !isCurrentUser { Spacer() }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
     }
 }

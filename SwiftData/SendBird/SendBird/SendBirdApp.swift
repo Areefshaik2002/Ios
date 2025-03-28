@@ -19,7 +19,7 @@ struct SendBirdApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ChatListView()
+            ChatListView(channelURL: "CHANNEL_URL")
                 .onAppear {
                     handleSendbirdUiMode()
                 }
